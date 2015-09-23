@@ -1,0 +1,30 @@
+<ion-side-menus enable-menu-with-back-views="false">
+  <ion-side-menu-content>
+    <ion-nav-bar class="bar-stable">
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+
+      <ion-nav-buttons side="left">
+        <ion-item>
+          <a href="#/app/create-event"><i class="ion-ios-plus-outline"></i></a>
+          </ion-item>
+        
+        
+      </ion-nav-buttons>
+       <ion-nav-buttons side="right">
+       <a href="#/app/notifications"><i class="ion-android-notifications-none"></i><span class="numbers">2</span></a>
+       <button class="button button-icon" ng-click="modal.show()">
+       <i class="ion-ios-search-strong"></i>
+        </button>
+        
+       
+        
+        
+       
+      </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-nav-view name="menuContent"></ion-nav-view>
+  </ion-side-menu-content>
+
+  
+</ion-side-menus>

@@ -1,0 +1,12 @@
+<ion-view view-title="iCrowding" ng-controller="MarkerRemoveCtrl">
+  
+<ion-content scroll="true">
+<h3>Location</h3>
+  <div class="mapWrap"  data-tap-disabled="true">
+    <map center="43.07493,-89.381388" zoom="15">
+      <!-- ngRepeat: pos in positions -->
+      <marker ng-repeat=" pos in positions" position="{{pos.lat}},{{pos.lng}}"></marker>
+    </map>
+  </div>
+</ion-content>
+</ion-view>

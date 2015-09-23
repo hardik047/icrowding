@@ -1,0 +1,41 @@
+      <ion-modal-view class="search" title="search">
+        
+        <ion-content class="padding">
+            <form ng-submit="searchnow();">
+                <div class="list list-inset">
+                    <label class="item item-input">
+                        <i class="icon ion-search"></i>
+                        <input type="text" ng-model="data.keyword" placeholder="Search">
+                    </label>
+                    <label class="item item-input item-select">
+                        <i class="icon ion-alert"></i>
+                        <select ng-model="data.targettype">
+                            <option value="E" selected>Events</option>
+                            <option value="P">People</option>
+                        </select>
+                    </label>
+                    <button class="button button-full blue" onclick="">Search</button>
+                </div>
+            </form>
+            <br /><br />
+
+        <ion-list class="list">
+            <ion-item class="item item-avatar" ng-repeat="result in results">
+                <img src="../img/profile.jpg" />
+                <div class="half">
+                    <h2><strong>{{result.fname}}</strong></h2>
+                </div>
+                <div class="half">
+                    <div ng-if="result.type == 'user'">
+                        <i class="ion-person-add" onclick="addfriend({{result.id}});"></i>
+                    </div>
+                    <div ng-if="result.type == 'event'">
+                        <i class="ion-android-add-circle" onclick="joinevent({{result.id}});"></i>
+                    </div>
+                </div>
+            </ion-item>
+        </ion-list>
+
+        </ion-content>
+      </ion-modal-view>
+  

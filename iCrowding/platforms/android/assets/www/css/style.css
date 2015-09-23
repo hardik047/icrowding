@@ -1,0 +1,160 @@
+/* Empty. Add your own CSS if you like */
+/* Empty. Add your own CSS if you like */
+@font-face {
+    font-family: Gotham-Rounded-Bold;
+    src: url(../fonts/Gotham-Rounded-Bold.ttf) format("truetype");
+}
+@font-face {
+    font-family: Gotham-Rounded-Bold-Italic;
+    src: url(../fonts/Gotham-Rounded-Bold-Italic.ttf) format("truetype");
+}
+@font-face {
+    font-family: Gotham-Rounded-Book_;
+    src: url(../fonts/Gotham-Rounded-Book_.ttf) format("truetype");
+}
+@font-face {
+    font-family: Gotham-Rounded-Book-Italic;
+    src: url(../fonts/Gotham-Rounded-Book-Italic.ttf) format("truetype");
+}
+@font-face {
+    font-family: Gotham-Rounded-Light;
+    src: url(../fonts/Gotham-Rounded-Light.ttf) format("truetype");
+}
+@font-face {
+    font-family: Gotham-Rounded-Light-Italic;
+    src: url(../fonts/Gotham-Rounded-Light-Italic.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: Gotham-Rounded-Medium;
+    src: url(../fonts/Gotham-Rounded-Medium.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: Gotham-Rounded-Medium-Italic;
+    src: url(../fonts/Gotham-Rounded-Medium-Italic.ttf) format("truetype");
+	
+}
+
+
+
+/********************************/
+/*       Universal style        */
+/********************************/
+ html, body, #map-canvas { height: 100%; margin: 0; padding: 0;}
+button, a{font-family: Gotham-Rounded-Light!important;text-shadow: 0px 1px rgba(0,0,0,0.6);}
+a i{text-shadow:none;}
+.left-buttons a.item-content{padding:0px; border:none; background:none;}
+.left-buttons .item{box-shadow:none; border:none; background:none; margin-left:10px; padding:0px;}
+.left-buttons .item a i:before{font-size:37px; color:#fff; margin-left:5px;}
+.bar .buttons span.back-text{display:none;}
+.bar{box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3), 1px 0px 2px rgba(0, 0, 0, 0.3);}
+.bar .title{font-size:25px!important; font-family: Gotham-Rounded-Bold;text-shadow: 0px 3px rgba(0,0,0,0.4); text-align:center!important;}
+.content h3{display:block; margin:64px auto 20px auto; max-width:100%; text-align:center; color:#1c87dc; font-family: Gotham-Rounded-Medium;text-shadow: 0px 2px rgba(0,0,0,0.2);}
+.pane, .view{background:url(../img/body-background.jpg) repeat; background-position:center; color:#555555;}
+.right-icon i{float:right; margin-right:10px; font-size:25px;}
+.scroll-bar-indicator{background: rgb(72, 156, 223);}
+.bar-footer{margin-top:100px;}
+.grey{color:#444;}
+.blue, ion-header-bar{background-color:#489cdf!important; border:1px solid #489cdf!important; color:#fff!important;}
+.title, .bar-stable .button.button-clear{color:#fff!important;}
+.item{border-color:#489cdf;}
+a.forgot, a.create{display:block; text-decoration:none; color:#fff; text-align:center; width:100%; padding:11px 12px; font-size:16px; background-color:#489cdf;border:1px solid #489cdf;}
+.button.button-block{margin-bottom:0px;}
+.tabs-top > .tabs{top:0px;}
+.checkbox input:checked:before, .checkbox input:checked + .checkbox-icon:before{background-color:#489cdf!important; border:1px solid #1c87dc!important; }
+.menu-content, .item{ box-shadow: -1px 0px 2px rgba(72, 156, 223, 0.9), 1px 0px 2px rgba(72, 156, 223, 0.9); }
+.tab-item{max-width:80px;}
+.right-buttons i{font-size:33px; margin-right:10px; margin-top:3px; color:#fff;}
+.list label{margin:8px;}
+label.item-input{padding-top:0px; padding-bottom:0px;}
+label.checkbox{margin-left:8px; font-family: Gotham-Rounded-Medium;}
+label.item-input{padding-left:50px;}
+.list label i{position: absolute;top: 0px;left: 8px;z-index: 1;color: #489cdf; font-size:25px; padding-right:10px;  box-shadow: 2px 0px 3px rgba(72, 156, 223, 0.9), 0px 0px 0px rgba(72, 156, 223, 0.9); width:30px; text-align:center;border-right: 1px groove #489cdf;}
+.checkbox input{display:inline-block; vertical-align:middle;margin-right:10px;}
+label .item-complex .item-content{padding:7px;}
+.scroll h3{text-align: center;margin-top: 30px; color:#1c87dc;font-family: Gotham-Rounded-Medium;text-shadow: 0px 1px rgba(0,0,0,0.1);letter-spacing:1px;}
+.item-select select{position:static; padding:0px; height:34px;width:100%; max-width:100%; direction:inherit;}
+.item-select:after{color:#489cdf;}
+.tab-item i.icon{color: #fff;}
+.tab-item{opacity:inherit;}
+a.tab-item{color:#fff;}
+.tabs{border-color: #489cdf;background-color:#489cdf;}
+.checkbox input:before, .checkbox .checkbox-icon:before{border-color:#1c87dc}
+.tabs-icon-top.tabs .tab-item{font-size:11px;}
+.list a.item-avatar:last-child{margin-bottom:50px;}
+.marginbottom{margin-bottom:100px;}
+.right-buttons span.numbers{position: absolute;top: 0px;left: 14px;background-color:#F00;width: 20px;height: 20px;text-align: center;color: #fff;border-radius: 50%;font-family: Gotham-Rounded-Book_; font-size:12px;}
+.bar .buttons-right span{margin-right:10px;}
+map {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.scroll {
+  height: 100%;
+}
+/********************************/
+/*      Edit-Profile            */
+/********************************/
+.upload-image button{display:block!important; margin:auto!important;    background-color:#fff;}
+.upload-image button{border: 0px; background: none;}
+.upload-image button:after{content: "\f118"; font-family: "Ionicons";position: absolute;top: 0px;font-size: 35px; color: #489cdf;    right: 0px;left: 0px; margin-left: 75px;}
+.upload-image img{width: 100px;height: 100px;    border-radius: 50%;
+box-shadow: -1px 0px 2px rgba(72, 156, 223, 0.9), 1px 0px 2px rgba(72, 156, 223, 0.9);border-color: #489cdf;}
+
+
+/********************************/
+/*       Friends                */
+/********************************/
+.half{width:50%; display:inline-block;}
+.half h2{margin-top:12px; font-size:12px; font-family: Gotham-Rounded-Light;}
+.half i{position: absolute;right: 0px;top: 20px; font-size:30px; color:#489cdf; right:20px;}
+.half label{position: absolute;top: 8px;padding: 0px; margin: 0px; right:50px;top: 21px;}
+.item-avatar{padding-left:65px;}
+
+/********************************/
+/*       Events                 */
+/********************************/
+
+.event .list li{color:#555555; padding:12px;}
+.event .list li .row{padding:0px;}
+.event .list li .row div{font-size:12px;font-family: Gotham-Rounded-Book_; padding:5px 0px;}
+.event .list li .row div i{font-size: 27px;position: absolute;top: 13px; color:#489cdf;}
+.event .list li .row .join-button{font-size: 14px;text-decoration: none;padding: 6px 0px;background-color: #489cdf;color: #fff;position: absolute; top: 12px;right: 10px; width:70px; text-align:center;letter-spacing: 1px;text-transform: capitalize;}
+.event .list li .row .invite-button{font-size: 14px;text-decoration: none;padding: 6px 0px;background-color: #fff;color: #489cdf;position: absolute; top: 12px;right: 10px; width:70px; text-align:center; border:1px solid #489cdf;letter-spacing: 1px;text-transform: capitalize;}
+
+/********************************/
+/*       Just-Now               */
+/********************************/
+.just-now label{padding:0px;}
+.just-now .item-input textarea{resize:none; padding-top:10px; padding-bottom:10px;padding-left:18px; padding-right:15px;}
+.just-now .item-input select{padding-left:15px; padding-right:15px;}
+
+
+/********************************/
+/*       Map                    */
+/********************************/
+.gm-style-mtc div{font-family: Gotham-Rounded-Bold; font-size:16px!important; color: #1C87DC!important;text-shadow: 0px 1px rgba(0, 0, 0, 0.4);  }
+
+#map { width: 100%;height: 100%;}
+
+.scroll {height: 100%;}
+
+/********************************/
+/*       Search                 */
+/********************************/
+ion-modal-view.modal{top: 34%!important;right: 10%!important;bottom: 34%!important;left: 10%!important;min-height: 220px!important;width: 80%!important; }
+.search ion-header-bar h1{font-size:24px!important; line-height:30px!important; height:30px!important;}
+.modal-wrapper ion-modal-view.modal{border:2px groove #489cdf;}
+.search .list-inset .item.item-input input{padding-right:10px;}
+.search ion-header-bar{height:35px;}
+.search .bar .title + .button:last-child{top:0px;}
+
+/********************************/
+/*     Notifications            */
+/********************************/
+
+.notification div{font-size: 12px;
+        font-family: Gotham-Rounded-Light;
+    padding: 5px 0px;}

@@ -1,0 +1,46 @@
+<ion-view view-title="iCrowding" class="main-login">
+ 
+   
+ <ion-content hide-nav-bar="true" ng-controller="loginCtrl">
+     <form id="loginform" ng-submit="login();">
+         <div class="content">
+             <h3>Login</h3>
+
+             <div class="list">
+
+                 <label class="item item-input">
+                     <i class="ion-android-person"></i>
+                     <input type="text" ng-model="data.username" name="username" placeholder="Username" required>
+                 </label>
+                 <label class="item item-input">
+                     <i class="ion-ios-locked"></i>
+                     <input type="password" ng-model="data.password" name="password" placeholder="Password" required>
+                 </label>
+
+                 <label class="checkbox">
+                     <input type="checkbox" ng-model="data.loggedinflag" name="loggedinflag">
+
+                     Keep me logged-in
+                 </label>
+
+             </div><!-- list -->
+         </div><!-- content -->
+
+
+         <div class="row">
+             <div class="col">
+                 <input type="submit" class="button button-block button-positive blue right-icon" value="Login" />
+             </div>
+     </form>
+      </div>
+      <div class="row">
+       <div class="col"> <a href="#/app/forgot" class="forgot right-icon">Forgot Password <i class="ion-ios-help-outline"></i></a></div>
+       </div>
+        <div class="row">
+       <div class="col"> <a href="#/app/create" class="create right-icon">Create Account<i class="ion-android-add"></i></a></div>
+       </div>
+      
+     </ion-content>
+   
+</ion-view>
+ <ion-item menu-close href="#/app/home">

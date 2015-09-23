@@ -1,0 +1,33 @@
+{
+    "prepare_queue": {
+        "installed": [
+            {
+                "plugin": "org.apache.cordova.dialogs",
+                "vars": {},
+                "topLevel": true
+            },
+            {
+                "plugin": "org.apache.cordova.dialogs",
+                "vars": {},
+                "topLevel": true
+            }
+        ],
+        "uninstalled": [
+            {
+                "plugin": "org.apache.cordova.dialogs",
+                "id": "org.apache.cordova.dialogs",
+                "topLevel": true
+            },
+            {
+                "plugin": "org.apache.cordova.dialogs",
+                "id": "org.apache.cordova.dialogs",
+                "topLevel": true
+            }
+        ]
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {},
+    "dependent_plugins": {}
+}
