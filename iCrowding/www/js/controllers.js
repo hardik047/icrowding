@@ -11,21 +11,19 @@ angular.module('starter.controllers', [])
   //$scope.$on('$ionicView.enter', function(e) {
   //});
   
- //search Pop-Up
+ //change-password Pop-Up
 
   $ionicModal.fromTemplateUrl('templates/modal.html', {
     scope: $scope
   }).then(function(modal) {
     $scope.modal = modal;
   }); 
-  $ionicModal.fromTemplateUrl('templates/logout.html', {
+  $ionicModal.fromTemplateUrl('templates/change-password.html', {
     scope: $scope
   }).then(function(modal) {
-    $scope.logout = modal;
+    $scope.change = modal;
   });
-  $scope.openModal = function() {
-    $scope.m.show();
-  };
+  
 
 })
 
@@ -69,7 +67,15 @@ angular.module('starter.controllers', [])
         $http.post('http://www.icreax.in/icrowding_server/logger.php', { username: $scope.data.username, password: $scope.data.password })
         .success(function (response) {
 
-            if(response.email.toLowerCase() == $scope.data.username.toLowerCase() && response.password == $scope.data.password)
+            if (response == "failure")
+            {
+                alert('Could not login! Check your credentials !');
+            }
+            else if(response == "nodata")
+            {
+                alert('Please fill all the required fields!');
+            }
+            else if(response.email.toLowerCase() == $scope.data.username.toLowerCase() && response.password == $scope.data.password)
             {
                 localStorage.setItem('username', response.email);
                 if($scope.data.loggedinflag == 1)

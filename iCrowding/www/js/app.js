@@ -99,6 +99,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives']
     }
   })
   
+  .state('app.profile', {
+    url: "/profile",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/profile.html"
+      }
+    }
+  })
+  
   .state('app.just-now', {
     url: "/just-now",
     views: {
@@ -145,6 +154,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives']
       views: {
         'menuContent': {
           templateUrl: "templates/event.html",
+          controller: "EventsCtrl"
+        }
+      }
+    })
+	
+	.state('app.event-info', {
+      url: "/event-info",
+      views: {
+        'menuContent': {
+          templateUrl: "templates/event-info.html",
           controller: "EventsCtrl"
         }
       }

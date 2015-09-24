@@ -1,36 +1,28 @@
 <ion-view view-title="iCrowding">
   <ion-content>
-          <h3>Edit Profile</h3>
+          <h3>Profile</h3>
     
     
                   <div class="list">
                  
-                   <div class="upload-image">
-                  
-                     <button ng-click="takePicture()"> <img src="img/profile.jpg" /></button>
-                      </div>
+                   
                           <label class="item item-input">
                         <i class="ion-ios-person-outline"></i>
                           <input type="text" placeholder="First Name" >
                         </label>
                         <label class="item item-input">
-                         <i class="ion-ios-person-outline"></i>
-                         <input type="text" placeholder="Last Name" required>
-                         </label>
+                          <i class="ion-ios-person-outline"></i>
+                          <input type="text" placeholder="Last Name" required>
+                          </label>
                         <label class="item item-input">
                         <i class="ion-ios-email-outline"></i>
                           <input type="email" placeholder="Email" >
                         </label>
                        
                         
-                         <label class="item item-input item-select">
+                         <label class="item item-input">
                           <i class="ion-transgender"></i>
-                        
-                            <select>
-                              <option value="" class="grey">Gender</option>
-                              <option value="0">Male</option>
-                              <option value="1">Female</option>
-                            </select>
+                            <input type="text" placeholder="Gender" >
                           </label>
                         
                         
@@ -61,14 +53,8 @@
                        
                         
                           <div class="col marginbottom">
-                          <button class="button button-block button-positive blue right-icon margin-top">Save <i class="ion-android-add"></i></button>
-                          <button class="button button-block button-positive blue right-icon margin-top"  ng-click="change.show()">Change-Password <i class="ion-android-add"></i></button>
-                          </div> 
-                          
-                           
-                          
-                          
-                          
+                          <a href="#/app/edit-profile" class="button-a right-icon margin-top">Edit Profile<i class="ion-android-add"></i></a>
+                          </div>   
                        
               </div><!-- list -->
   </ion-content>

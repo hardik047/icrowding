@@ -6,7 +6,11 @@
           <div class="list">
               <label class="item item-input">
                   <i class="ion-ios-person-outline"></i>
-                  <input type="text" ng-model="data.name" placeholder="Your Name" required>
+                  <input type="text" ng-model="data.name" placeholder="First Name" required>
+              </label>
+              <label class="item item-input">
+                  <i class="ion-ios-person-outline"></i>
+                  <input type="text" placeholder="Last Name" required>
               </label>
               <label class="item item-input">
                   <i class="ion-ios-email-outline"></i>
@@ -34,15 +38,15 @@
 
               <label class="item item-input">
                   <i class="ion-man"></i>
-                  <input type="text" ng-model="data.height" placeholder="Height" required>
+                  <input type="number" ng-model="data.height" placeholder="Height" required>
               </label>
               <label class="item item-input">
                   <i class="ion-bag"></i>
-                  <input type="text" placeholder="Weight" ng-model="data.weight" required>
+                  <input type="number" placeholder="Weight" ng-model="data.weight" required>
               </label>
               <label class="item item-input">
                   <i class="ion-ios-calendar-outline"></i>
-                  <input type="text" placeholder="Age" ng-model="data.age" required>
+                  <input type="number" placeholder="Age" ng-model="data.age" required>
               </label>
               <label class="item item-input">
                   <i class="ion-ios-body-outline"></i>
@@ -58,9 +62,12 @@
               </label>
 
 
-              <div class="col marginbottom">
+              <div class="col">
                   <input type="submit" class="button button-block button-positive blue right-icon margin-top" value="Create Account" />
               </div>
+               <p class="text-center padding marginbottom ">
+                <a class="blue-color" href="#/app/login">I Already have Account</a>
+            </p>
           </div><!-- list -->
       </form> 
   </ion-content>
