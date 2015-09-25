@@ -1,33 +1,39 @@
 {
     "prepare_queue": {
-        "installed": [
-            {
-                "plugin": "org.apache.cordova.dialogs",
-                "vars": {},
-                "topLevel": true
-            },
-            {
-                "plugin": "org.apache.cordova.dialogs",
-                "vars": {},
-                "topLevel": true
-            }
-        ],
-        "uninstalled": [
-            {
-                "plugin": "org.apache.cordova.dialogs",
-                "id": "org.apache.cordova.dialogs",
-                "topLevel": true
-            },
-            {
-                "plugin": "org.apache.cordova.dialogs",
-                "id": "org.apache.cordova.dialogs",
-                "topLevel": true
-            }
-        ]
+        "installed": [],
+        "uninstalled": []
     },
     "config_munge": {
-        "files": {}
+        "files": {
+            "res/xml/config.xml": {
+                "parents": {
+                    "/*": [
+                        {
+                            "xml": "<feature name=\"Notification\"><param name=\"android-package\" value=\"org.apache.cordova.dialogs.Notification\" /></feature>",
+                            "count": 1
+                        }
+                    ]
+                }
+            },
+            "config.xml": {
+                "parents": {
+                    "/*": [
+                        {
+                            "xml": "<feature name=\"Keyboard\"><param name=\"android-package\" onload=\"true\" value=\"org.apache.cordova.labs.keyboard.Keyboard\" /></feature>",
+                            "count": 1
+                        }
+                    ]
+                }
+            }
+        }
     },
-    "installed_plugins": {},
+    "installed_plugins": {
+        "org.apache.cordova.dialogs": {
+            "PACKAGE_NAME": "io.cordova.myappe2785d518e9f4f6ea03055878dd7a400"
+        },
+        "cordova-plugin-keyboard": {
+            "PACKAGE_NAME": "io.cordova.myappe2785d518e9f4f6ea03055878dd7a400"
+        }
+    },
     "dependent_plugins": {}
 }

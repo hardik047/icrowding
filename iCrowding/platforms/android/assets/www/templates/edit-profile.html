@@ -11,24 +11,17 @@
                       </div>
                           <label class="item item-input">
                         <i class="ion-ios-person-outline"></i>
-                          <input type="text" placeholder="User Name" >
+                          <input type="text" placeholder="First Name" >
                         </label>
+                        <label class="item item-input">
+                         <i class="ion-ios-person-outline"></i>
+                         <input type="text" placeholder="Last Name" required>
+                         </label>
                         <label class="item item-input">
                         <i class="ion-ios-email-outline"></i>
                           <input type="email" placeholder="Email" >
                         </label>
-                        <label class="item item-input">
-                        <i class="ion-ios-locked-outline"></i>
-                          <input type="password" placeholder="Current Password" >
-                        </label>
-                          <label class="item item-input">
-                        <i class="ion-ios-locked-outline"></i>
-                          <input type="password" placeholder="New Password" >
-                        </label>
-                        <label class="item item-input">
-                        <i class="ion-ios-locked-outline"></i>
-                          <input type="password" placeholder="Confirm New Password" >
-                        </label>
+                       
                         
                          <label class="item item-input item-select">
                           <i class="ion-transgender"></i>
@@ -69,7 +62,13 @@
                         
                           <div class="col marginbottom">
                           <button class="button button-block button-positive blue right-icon margin-top">Save <i class="ion-android-add"></i></button>
-                          </div>  
+                          <button class="button button-block button-positive blue right-icon margin-top"  ng-click="change.show()">Change-Password <i class="ion-android-add"></i></button>
+                          </div> 
+                          
+                           
+                          
+                          
+                          
                        
               </div><!-- list -->
   </ion-content>

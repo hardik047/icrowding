@@ -96,11 +96,30 @@ angular.module('starter.controllers', [])
 .controller('PlaylistCtrl', function($scope, $stateParams) {
 })
 
-.controller('EventsCtrl', function ($scope, $http) {
+.controller('EventsCtrl', function ($scope, $http, Datasharing) {
 
     $http.get('http://www.icreax.in/icrowding_server/listevents.php')
     .success(function (response) {
         $scope.events = response;
+    });
+
+    $scope.data = {}
+    $scope.passingparams = Datasharing;
+
+    $scope.gotoEvent = function (eventid) {
+        $scope.passingparams.passid = eventid;
+        window.location.href = "#/app/event-info";
+    }
+
+})
+
+.controller('EventinfoCtrl', function ($scope, $http, Datasharing) {
+
+    $scope.passingparams = Datasharing;
+
+    $http.post('http://www.icreax.in/icrowding_server/geteventinfo.php', { eventid: $scope.passingparams.passid })
+    .success(function (response) {
+        $scope.eventinfo = response;
     })
 
 })
@@ -178,8 +197,8 @@ angular.module('starter.controllers', [])
             return false;
         }
 
-        if ($scope.data.name == '') {
-            navigator.notification.alert('Please enter your name!', function () { }, 'Attention!');
+        if ($scope.data.fname == '') {
+            navigator.notification.alert('Please enter your first name!', function () { }, 'Attention!');
             return false;
         }
 
@@ -193,7 +212,7 @@ angular.module('starter.controllers', [])
             return false;
         }
 
-        $http.post('http://www.icreax.in/icrowding_server/register.php', { name: $scope.data.name, email: $scope.data.email, password: $scope.data.password, gender: $scope.data.gender, height: $scope.data.height, weight: $scope.data.weight, age: $scope.data.age, sexuality: $scope.data.sexuality, occupation: $scope.data.occupation, seeking: $scope.data.seeking })
+        $http.post('http://www.icreax.in/icrowding_server/register.php', { fname: $scope.data.fname, lname: $scope.data.lname, email: $scope.data.email, password: $scope.data.password, gender: $scope.data.gender, height: $scope.data.height, weight: $scope.data.weight, age: $scope.data.age, sexuality: $scope.data.sexuality, occupation: $scope.data.occupation, seeking: $scope.data.seeking })
         .success(function (response) {
 
             if(response == 'success')
@@ -232,9 +251,10 @@ angular.module('starter.controllers', [])
         window.location.href = "#/app/login";
     }
 })
-.controller('SearchCtrl', function ($scope, $http) {
+.controller('SearchCtrl', function ($scope, $http, Datasharing) {
 
     $scope.data = {}
+    $scope.passingparams = Datasharing;
 
     $scope.searchnow = function () {
 
@@ -254,8 +274,22 @@ angular.module('starter.controllers', [])
         
     }
 
+    $scope.gotoEvent = function (eventid) {
+        $scope.passingparams.passid = eventid;
+        window.location.href = "#/app/event-info";
+    }
+
+    $scope.viewProfile = function (userid) {
+        $scope.passingparams.passid = userid;
+        window.location.href = "#/app/profile";
+    }
+ 
+    $scope.joinevent = function (eventid) {
+        
+    }
+
     $scope.addfriend = function (userid) {
-        $http.post('http://www.icreax.in/icrowding_server/addfriend.php', { friendid: userid })
+        $http.post('http://www.icreax.in/icrowding_server/addfriend.php', { friendid: userid,senderid: localStorage.getItem('username') })
         .success(function (response) {
             if(response == success)
             {

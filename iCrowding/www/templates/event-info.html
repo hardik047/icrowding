@@ -1,40 +1,37 @@
 <ion-view view-title="iCrowding">
   <ion-content class="event-info">
     <h3>Event Info</h3>
-    <ul class="list">
+    <ul class="list" ng-repeat="info in eventinfo">
     <li class="item">
     <div class="row">
 
       <div class="col col-25 info-left">Title</div>
-      <div class="col col-70">Night Out</div>
+      <div class="col col-70">{{info.fname}}</div>
      </div>
     </li>
     <li class="item">
     <div class="row">
       <div class="col col-25 info-left">Date</div>
-       <div class="col col-70">04/08/2015</div>
+       <div class="col col-70">{{info.date}}</div>
      </div>
     </li>
      <li class="item">
     <div class="row">
       <div class="col col-25 info-left">Time</div>
-      <div class="col col-70">04:00 PM</div>
+      <div class="col col-70">{{info.time}}</div>
      </div>
     </li>
     
      <li class="item">
     <div class="row">
       <div class="col col-25 info-left">Place</div>
-      <div class="col col-70">Texas</div>
+      <div class="col col-70">{{info.location}}</div>
      </div>
     </li>
-    
-     
-    
      <li class="item">
     <div class="row">
       <div class="col col-25 info-left">Keyword</div>
-      <div class="col col-70">Hi</div>
+      <div class="col col-70">{{info.keywords}}</div>
      </div>
     </li>
     

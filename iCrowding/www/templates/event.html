@@ -4,9 +4,9 @@
     <ion-list class="list">
     <li class="item" ng-repeat="event in events">
     <div class="row">
-      <div class="col col-20">{{event.date}}</div>
-      <div class="col col-45"> <a class="event-detail" href="#/app/event-info">{{event.fname}}</a></div>
-      <div class="col col-10"><a href="#/app/location"><i class="ion-ios-location-outline"></i></a></div>
+        <div class="col col-20">{{event.date}} - </div>
+        <div class="col col-45" ng-click="gotoEvent({{event.id}})"> <span class="event-detail">{{event.fname}}</span></div>
+        <div class="col col-10"><a href="#/app/location"><i class="ion-ios-location-outline"></i></a></div>
      </div>
     </li> 
 </ion-list>

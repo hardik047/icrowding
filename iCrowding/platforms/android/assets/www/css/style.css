@@ -45,32 +45,35 @@
 button, a{font-family: Gotham-Rounded-Light!important;text-shadow: 0px 1px rgba(0,0,0,0.6);}
 a i{text-shadow:none;}
 .left-buttons a.item-content{padding:0px; border:none; background:none;}
-.left-buttons .item{box-shadow:none; border:none; background:none; margin-left:10px; padding:0px;}
-.left-buttons .item a i:before{font-size:37px; color:#fff; margin-left:5px;}
+.left-buttons .item{box-shadow:none; border:none; background:none;  padding:0px;}
+.left-buttons .item a i:before{font-size:33px; color:#fff; margin-left:5px;}
 .bar .buttons span.back-text{display:none;}
 .bar{box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3), 1px 0px 2px rgba(0, 0, 0, 0.3);}
-.bar .title{font-size:25px!important; font-family: Gotham-Rounded-Bold;text-shadow: 0px 3px rgba(0,0,0,0.4); text-align:center!important;}
+.bar .title{font-size:27px!important; font-family: Gotham-Rounded-Bold;text-shadow: 0px 3px rgba(0,0,0,0.4); text-align:center!important; left: 70px!important;right: 70px!important;}
 .content h3{display:block; margin:64px auto 20px auto; max-width:100%; text-align:center; color:#1c87dc; font-family: Gotham-Rounded-Medium;text-shadow: 0px 2px rgba(0,0,0,0.2);}
 .pane, .view{background:url(../img/body-background.jpg) repeat; background-position:center; color:#555555;}
-.right-icon i{float:right; margin-right:10px; font-size:25px;}
+.right-icon i{font-size: 25px;position: absolute;right: 20px; }
+button.right-icon i{margin-top:9px;}
 .scroll-bar-indicator{background: rgb(72, 156, 223);}
 .bar-footer{margin-top:100px;}
 .grey{color:#444;}
 .blue, ion-header-bar{background-color:#489cdf!important; border:1px solid #489cdf!important; color:#fff!important;}
 .title, .bar-stable .button.button-clear{color:#fff!important;}
 .item{border-color:#489cdf;}
-a.forgot, a.create{display:block; text-decoration:none; color:#fff; text-align:center; width:100%; padding:11px 12px; font-size:16px; background-color:#489cdf;border:1px solid #489cdf;}
+a.button-a{display:block; text-decoration:none; color:#fff; text-align:center; width:100%;  font-size:16px; background-color:#489cdf;border:1px solid #489cdf; padding:12.5px;}
 .button.button-block{margin-bottom:0px;}
 .tabs-top > .tabs{top:0px;}
 .checkbox input:checked:before, .checkbox input:checked + .checkbox-icon:before{background-color:#489cdf!important; border:1px solid #1c87dc!important; }
 .menu-content, .item{ box-shadow: -1px 0px 2px rgba(72, 156, 223, 0.9), 1px 0px 2px rgba(72, 156, 223, 0.9); }
 .tab-item{max-width:80px;}
-.right-buttons i{font-size:33px; margin-right:10px; margin-top:3px; color:#fff;}
+.right-buttons i{font-size:33px; color:#fff; margin-right:15px;}
 .list label{margin:8px;}
 label.item-input{padding-top:0px; padding-bottom:0px;}
 label.checkbox{margin-left:8px; font-family: Gotham-Rounded-Medium;}
 label.item-input{padding-left:50px;}
-.list label i{position: absolute;top: 0px;left: 8px;z-index: 1;color: #489cdf; font-size:25px; padding-right:10px;  box-shadow: 2px 0px 3px rgba(72, 156, 223, 0.9), 0px 0px 0px rgba(72, 156, 223, 0.9); width:30px; text-align:center;border-right: 1px groove #489cdf;}
+.list label i{position: absolute;top: 0px;left: 8px;z-index: 1;color: #489cdf; font-size:25px; padding-right:10px;  box-shadow: 2px 0px 3px rgba(72, 156, 223, 0.9), 0px 0px 0px rgba(72, 156, 223, 0.9); width:30px; text-align:center;border-right: 1px groove #489cdf;
+height:100%;}
+.list label i:before{margin-top:5px;}
 .checkbox input{display:inline-block; vertical-align:middle;margin-right:10px;}
 label .item-complex .item-content{padding:7px;}
 .scroll h3{text-align: center;margin-top: 30px; color:#1c87dc;font-family: Gotham-Rounded-Medium;text-shadow: 0px 1px rgba(0,0,0,0.1);letter-spacing:1px;}
@@ -83,9 +86,8 @@ a.tab-item{color:#fff;}
 .checkbox input:before, .checkbox .checkbox-icon:before{border-color:#1c87dc}
 .tabs-icon-top.tabs .tab-item{font-size:11px;}
 .list a.item-avatar:last-child{margin-bottom:50px;}
-.marginbottom{margin-bottom:100px;}
-.right-buttons span.numbers{position: absolute;top: 0px;left: 14px;background-color:#F00;width: 20px;height: 20px;text-align: center;color: #fff;border-radius: 50%;font-family: Gotham-Rounded-Book_; font-size:12px;}
-.bar .buttons-right span{margin-right:10px;}
+.marginbottom{margin-bottom:120px;}
+.right-buttons span.numbers{position: absolute;top: 0px;right:5px;background-color:#F00;width: 20px;height: 20px;text-align: center;color: #fff;border-radius: 50%;font-family: Gotham-Rounded-Book_; font-size:12px; margin: 0;}
 map {
   display: block;
   width: 100%;
@@ -94,6 +96,9 @@ map {
 .scroll {
   height: 100%;
 }
+.bar .buttons .hide.menu-button{display:block!important;}
+.right-buttons button.button{padding:0px!important;}
+a.blue-color{color:#489cdf; text-decoration:none; font-size:20px; font-family: Gotham-Rounded-Book_!important;text-shadow: none;}
 /********************************/
 /*      Edit-Profile            */
 /********************************/
@@ -123,6 +128,7 @@ box-shadow: -1px 0px 2px rgba(72, 156, 223, 0.9), 1px 0px 2px rgba(72, 156, 223,
 .event .list li .row div i{font-size: 27px;position: absolute;top: 13px; color:#489cdf;}
 .event .list li .row .join-button{font-size: 14px;text-decoration: none;padding: 6px 0px;background-color: #489cdf;color: #fff;position: absolute; top: 12px;right: 10px; width:70px; text-align:center;letter-spacing: 1px;text-transform: capitalize;}
 .event .list li .row .invite-button{font-size: 14px;text-decoration: none;padding: 6px 0px;background-color: #fff;color: #489cdf;position: absolute; top: 12px;right: 10px; width:70px; text-align:center; border:1px solid #489cdf;letter-spacing: 1px;text-transform: capitalize;}
+.event a.event-detail{font-size:12px;font-family: Gotham-Rounded-Book_; text-decoration:none; color:#555555; text-shadow:none;}
 
 /********************************/
 /*       Just-Now               */
@@ -144,17 +150,36 @@ box-shadow: -1px 0px 2px rgba(72, 156, 223, 0.9), 1px 0px 2px rgba(72, 156, 223,
 /********************************/
 /*       Search                 */
 /********************************/
-ion-modal-view.modal{top: 34%!important;right: 10%!important;bottom: 34%!important;left: 10%!important;min-height: 220px!important;width: 80%!important; }
-.search ion-header-bar h1{font-size:24px!important; line-height:30px!important; height:30px!important;}
-.modal-wrapper ion-modal-view.modal{border:2px groove #489cdf;}
-.search .list-inset .item.item-input input{padding-right:10px;}
-.search ion-header-bar{height:35px;}
-.search .bar .title + .button:last-child{top:0px;}
+.search{margin-top:20px;}
+.search .search-inner{margin-top:0px!important; border:1px groove #489cdf; border-radius:0px; background:none;}
+.search button.search-button{ border:1px groove #489cdf; border-radius:0px; background-color:#489cdf; color:#fff; border-left:none; margin:0px; height:33px; padding:0px 5px!important;}
+.search button.search-button i{ color:#fff;}
 
 /********************************/
 /*     Notifications            */
 /********************************/
 
-.notification div{font-size: 12px;
-        font-family: Gotham-Rounded-Light;
-    padding: 5px 0px;}
+.notification div{font-size: 12px; font-family: Gotham-Rounded-Light; padding: 5px 0px;}
+
+/********************************/
+/*     Logout                   */
+/********************************/
+.logout ion-header-bar h1{font-size:24px!important; line-height:30px!important; height:30px!important;}	
+.logout ion-header-bar{height:35px;}
+.logout .bar .title + .button:last-child{top:0px;}	
+.logout .list{padding:15px; background: none;}
+	
+/********************************/
+/*     Menu                   */
+/********************************/	
+.profile-picture img{width: 100px;height: 100px;    border-radius: 50%;
+box-shadow: -1px 0px 2px rgba(72, 156, 223, 0.9), 1px 0px 2px rgba(72, 156, 223, 0.9);border-color: #489cdf;}
+.profile-picture{margin: 20px 0px;
+    text-align: center;}
+	
+/********************************/
+/* Event Info                   */
+/********************************/	
+
+.event-info .list li div .info-left{font-family: Gotham-Rounded-Medium; font-size:16px; color:#489cdf;}
+.event-info .list li div{font-size:14px; font-family: Gotham-Rounded-Book_; }

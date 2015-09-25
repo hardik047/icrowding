@@ -17,13 +17,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives']
           $(".left-buttons #menu-button, a.notifications-bell, #footer-tab").fadeIn();
       }
 
-    if (window.cordova && window.cordova.plugins.Keyboard) {
-      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-    }
     if (window.StatusBar) {
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
+
+    $ionicPlatform.registerBackButtonAction(function () {
+        return false;
+    }, 100);
+
   });
 })
 
@@ -164,7 +166,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives']
       views: {
         'menuContent': {
           templateUrl: "templates/event-info.html",
-          controller: "EventsCtrl"
+          controller: "EventinfoCtrl"
         }
       }
     })
@@ -187,17 +189,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives']
         }
       }
     });
-	
-	
-	
-	
-	
- 
-  
-  
   
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/login');
+})
+.factory('Datasharing', function () {
+    datasharing = {};
+    datasharing.passid = '';
+    datasharing.passparam = '';
+    return datasharing;
 })
 
 

@@ -9,14 +9,23 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives']
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-    // for form inputs)
-    if (window.cordova && window.cordova.plugins.Keyboard) {
-      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-    }
+      // for form inputs)
+      if (localStorage.getItem('username') != null && localStorage.getItem('password') != null)
+      {
+          alert(localStorage.getItem('username'));
+          window.location.href = '#/app/location';
+          $(".left-buttons #menu-button, a.notifications-bell, #footer-tab").fadeIn();
+      }
+
     if (window.StatusBar) {
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
+
+    $ionicPlatform.registerBackButtonAction(function () {
+        return false;
+    }, 100);
+
   });
 })
 
@@ -37,7 +46,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives']
     url: "/create-event",
     views: {
       'menuContent': {
-        templateUrl: "templates/create-event.html"
+          templateUrl: "templates/create-event.html",
+          controller: 'EventCtrl'
       }
     }
   })
@@ -47,6 +57,26 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives']
     views: {
       'menuContent': {
         templateUrl: "templates/notifications.html"
+      }
+    }
+  })
+  
+   .state('app.logout', {
+    url: "/logout",
+    views: {
+      'menuContent': {
+          templateUrl: "templates/logout.html",
+          controller: "LogoutCtrl"
+      }
+    }
+  })
+  
+   .state('app.search', {
+    url: "/search",
+    views: {
+      'menuContent': {
+          templateUrl: "templates/search.html",
+          controller: "SearchCtrl"
       }
     }
   })
@@ -67,6 +97,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives']
     views: {
       'menuContent': {
         templateUrl: "templates/edit-profile.html"
+      }
+    }
+  })
+  
+  .state('app.profile', {
+    url: "/profile",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/profile.html"
       }
     }
   })
@@ -94,7 +133,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives']
       views: {
         'menuContent': {
           templateUrl: "templates/forgot.html",
-         
+         controller: "forgotCtrl"
         }
       }
     })
@@ -104,7 +143,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives']
       views: {
         'menuContent': {
           templateUrl: "templates/create.html",
-         
+          controller: "CreateCtrl"
         }
       }
     })
@@ -117,31 +156,48 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives']
       views: {
         'menuContent': {
           templateUrl: "templates/event.html",
-         
+          controller: "EventsCtrl"
         }
       }
     })
 	
+	.state('app.event-info', {
+      url: "/event-info",
+      views: {
+        'menuContent': {
+          templateUrl: "templates/event-info.html",
+          controller: "EventinfoCtrl"
+        }
+      }
+    })
+	
+    .state('app.friends-invite', {
+        url: "/friends-invite",
+        views: {
+            'menuContent': {
+                templateUrl: "templates/friends-invite.html",
+                controller: "InviteCtrl"
+            }
+        }
+    })
+
 	.state('app.friends', {
       url: "/friends",
       views: {
         'menuContent': {
-          templateUrl: "templates/friends.html",
-         
+          templateUrl: "templates/friends.html"
         }
       }
     });
-	
-	
-	
-	
-	
- 
-  
-  
   
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/login');
+})
+.factory('Datasharing', function () {
+    datasharing = {};
+    datasharing.passid = '';
+    datasharing.passparam = '';
+    return datasharing;
 })
 
 

@@ -23,14 +23,19 @@
             <ion-item class="item item-avatar" ng-repeat="result in results">
                 <img src="../img/profile.jpg" />
                 <div class="half">
-                    <h2><strong>{{result.fname}}</strong></h2>
+                    <div ng-if="result.type == 'event'">
+                        <h2 ng-click="gotoEvent({{result.id}});"><strong>{{result.fname}}</strong></h2>
+                    </div>
+                    <div ng-if="result.type == 'user'">
+                        <h2 ng-click="viewProfile({{result.id}});"><strong>{{result.fname}}</strong></h2>
+                    </div>
                 </div>
                 <div class="half">
                     <div ng-if="result.type == 'user'">
-                        <i class="ion-person-add" onclick="addfriend({{result.id}});"></i>
+                        <i class="ion-person-add" ng-click="addfriend({{result.id}});"></i>
                     </div>
                     <div ng-if="result.type == 'event'">
-                        <i class="ion-android-add-circle" onclick="joinevent({{result.id}});"></i>
+                        <i class="ion-android-add-circle" ng-click="joinevent({{result.id}});"></i>
                     </div>
                 </div>
             </ion-item>

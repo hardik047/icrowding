@@ -3,37 +3,38 @@
     <h3>Create Event</h3>
     
     <div class="list">
-                          <label class="item item-input">
-                        <i class="ion-android-calendar"></i>
-                          <input type="text" placeholder="Name of the Event" >
-                        </label>
-                        <label class="item item-input">
-                        <i class="ion-ios-calendar-outline"></i>
-                          <input type="date" placeholder="Date" >
-                        </label>
-                          <label class="item item-input"  ng-controller="TimeController">
-                        <i class="ion-clock"></i>
-                          <input type="time" placeholder="Time"  ng-model="model.time2" formatted-time >
-                        </label>
-                        <label class="item item-input">
-                        <i class="ion-ios-location-outline"></i>
-                          <input type="text" placeholder="Location" >
-                        </label>
-                        
-                        
-                        
-                        
-                        <label class="item item-input">
-                        <i class="ion-document-text"></i>
-                          <input type="text" placeholder="Keywords" >
-                        </label>
-                       
-                       
-                        
-                          <div class="col marginbottom">
-                          <button class="button button-block button-positive blue right-icon margin-top">Create Event<i class="ion-android-add"></i></button>
-                          </div>  
-                       
+        <form id="eventform" ng-submit="createEvent();">
+            <label class="item item-input">
+                <i class="ion-android-calendar"></i>
+                <input type="text" placeholder="Name of the Event" ng-model="model.eventname">
+            </label>
+            <label class="item item-input">
+                <i class="ion-ios-calendar-outline"></i>
+                <input type="date" placeholder="Date (yyyy-MM-dd)" id="eventdate" ng-model="model.eventdate">
+            </label>
+            <label class="item item-input">
+                <i class="ion-clock"></i>
+                <input type="time" placeholder="Time (HH:mm:ss)" id="eventtime" ng-model="model.time2">
+            </label>
+            <label class="item item-input">
+                <i class="ion-ios-location-outline"></i>
+                <input type="text" placeholder="Location" ng-model="model.location">
+            </label>
+
+
+
+
+            <label class="item item-input">
+                <i class="ion-document-text"></i>
+                <input type="text" placeholder="Keywords" ng-model="model.keywords">
+            </label>
+
+
+
+            <div class="col marginbottom">
+                <input type="submit" class="button button-block button-positive blue right-icon margin-top" value="Create Event" />
+            </div>
+        </form>           
               </div><!-- List -->
   </ion-content>
 </ion-view>

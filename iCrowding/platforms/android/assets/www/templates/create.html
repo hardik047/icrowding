@@ -1,67 +1,74 @@
 <ion-view view-title="iCrowding">
   <ion-content>
           <h3>Create Account</h3>
-    
-    
-                  <div class="list">
-                          <label class="item item-input">
-                        <i class="ion-ios-person-outline"></i>
-                          <input type="text" placeholder="User Name" >
-                        </label>
-                        <label class="item item-input">
-                        <i class="ion-ios-email-outline"></i>
-                          <input type="email" placeholder="Email" >
-                        </label>
-                          <label class="item item-input">
-                        <i class="ion-ios-locked-outline"></i>
-                          <input type="password" placeholder="Password" >
-                        </label>
-                        <label class="item item-input">
-                        <i class="ion-ios-locked-outline"></i>
-                          <input type="password" placeholder="Confirm Password" >
-                        </label>
-                        
-                         <label class="item item-input item-select">
-                          <i class="ion-transgender"></i>
-                        
-                            <select>
-                              <option value="" class="grey">Gender</option>
-                              <option value="0">Male</option>
-                              <option value="1">Female</option>
-                            </select>
-                          </label>
-                        
-                        
-                        <label class="item item-input">
-                        <i class="ion-man"></i>
-                          <input type="text" placeholder="Height" >
-                        </label>
-                         <label class="item item-input">
-                        <i class="ion-bag"></i>
-                          <input type="text" placeholder="Weight" >
-                        </label>
-                         <label class="item item-input">
-                        <i class="ion-ios-calendar-outline"></i>
-                          <input type="text" placeholder="Age" >
-                        </label>
-                         <label class="item item-input">
-                          <i class="ion-ios-body-outline"></i>
-                          <input type="text" placeholder="Sexual Orientation" >
-                        </label>
-                         <label class="item item-input">
-                        <i class="ion-chatbubble"></i>
-                          <input type="text" placeholder="Occupation" >
-                        </label>
-                         <label class="item item-input">
-                        <i class="ion-search"></i>
-                          <input type="text" placeholder="What are you seeking" >
-                        </label>
-                       
-                        
-                          <div class="col marginbottom">
-                          <button class="button button-block button-positive blue right-icon margin-top">Create Account<i class="ion-android-add"></i></button>
-                          </div>  
-                       
-              </div><!-- list -->
+       
+      <form id="signupform" ng-submit="signup();">
+          <div class="list">
+              <label class="item item-input">
+                  <i class="ion-ios-person-outline"></i>
+                  <input type="text" ng-model="data.fname" placeholder="First Name" required>
+              </label>
+              <label class="item item-input">
+                  <i class="ion-ios-person-outline"></i>
+                  <input type="text" ng-model="data.lname" placeholder="Last Name" required>
+              </label>
+              <label class="item item-input">
+                  <i class="ion-ios-email-outline"></i>
+                  <input type="email" ng-model="data.email" placeholder="Email" required>
+              </label>
+              <label class="item item-input">
+                  <i class="ion-ios-locked-outline"></i>
+                  <input type="password" placeholder="Password" id="pswd"  ng-model="data.password" required>
+              </label>
+              <label class="item item-input">
+                  <i class="ion-ios-locked-outline"></i>
+                  <input type="password" placeholder="Confirm Password" id="cpswd" ng-model="data.confirmpassword" required>
+              </label>
+
+              <label class="item item-input item-select">
+                  <i class="ion-transgender"></i>
+
+                  <select  ng-model="data.gender" required>
+                      <option value="" class="grey">Gender</option>
+                      <option value="M" selected>Male</option>
+                      <option value="F">Female</option>
+                  </select>
+              </label>
+
+
+              <label class="item item-input">
+                  <i class="ion-man"></i>
+                  <input type="number" ng-model="data.height" placeholder="Height" required>
+              </label>
+              <label class="item item-input">
+                  <i class="ion-bag"></i>
+                  <input type="number" placeholder="Weight" ng-model="data.weight" required>
+              </label>
+              <label class="item item-input">
+                  <i class="ion-ios-calendar-outline"></i>
+                  <input type="number" placeholder="Age" ng-model="data.age" required>
+              </label>
+              <label class="item item-input">
+                  <i class="ion-ios-body-outline"></i>
+                  <input ng-model="data.sexuality" type="text" placeholder="Sexual Orientation">
+              </label>
+              <label class="item item-input">
+                  <i class="ion-chatbubble"></i>
+                  <input type="text" placeholder="Occupation"  ng-model="data.occupation" required>
+              </label>
+              <label class="item item-input">
+                  <i class="ion-search"></i>
+                  <input type="text" placeholder="What are you seeking" ng-model="data.seeking" required>
+              </label>
+
+
+              <div class="col">
+                  <input type="submit" class="button button-block button-positive blue right-icon margin-top" value="Create Account" />
+              </div>
+               <p class="text-center padding marginbottom ">
+                <a class="blue-color" href="#/app/login">I Already have Account</a>
+            </p>
+          </div><!-- list -->
+      </form> 
   </ion-content>
 </ion-view>

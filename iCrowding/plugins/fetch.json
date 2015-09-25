@@ -2,7 +2,14 @@
     "org.apache.cordova.dialogs": {
         "source": {
             "type": "registry",
-            "id": "org.apache.cordova.dialogs@0.3.0"
+            "id": "org.apache.cordova.dialogs"
+        }
+    },
+    "cordova-plugin-keyboard": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/cjpearson/cordova-plugin-keyboard.git",
+            "subdir": "."
         }
     }
 }
