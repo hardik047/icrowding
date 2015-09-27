@@ -237,7 +237,7 @@ angular.module('starter.controllers', [])
 
 })
 .controller('InviteCtrl', function ($scope, $http) {
-    $http.get("http://www.icreax.in/icrowding_server/getfriends.php")
+    $http.post("http://www.icreax.in/icrowding_server/getfriends.php", {userid: localStorage.getItem('username')})
     .success(function (response) {
         $scope.friends = response;
     });
@@ -365,7 +365,14 @@ angular.module('starter.controllers', [])
 
 })
 
+.controller('friendsCtrl', function ($scope, $http) {
 
+    $http.post('http://www.icreax.in/icrowding_server/listfriends..php', { userid: localStorage.getItem('username') })
+    .success(function (response) {
+        $scope.friends = response;
+    })
+
+})
 
 
 

@@ -194,7 +194,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives']
         cache: false,
       views: {
         'menuContent': {
-          templateUrl: "templates/friends.html"
+            templateUrl: "templates/friends.html",
+            controller: "friendsCtrl"
         }
       }
     });
