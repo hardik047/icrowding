@@ -53,7 +53,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives']
   })
   
    .state('app.notifications', {
-    url: "/notifications",
+       url: "/notifications",
+       cache: false,
     views: {
       'menuContent': {
         templateUrl: "templates/notifications.html"
@@ -72,7 +73,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives']
   })
   
    .state('app.search', {
-    url: "/search",
+       url: "/search",
+       cache: false,
     views: {
       'menuContent': {
           templateUrl: "templates/search.html",
@@ -84,7 +86,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives']
   		
 
   .state('app.location', {
-    url: "/location",
+      url: "/location",
+      cache: false,
     views: {
       'menuContent': {
         templateUrl: "templates/location.html",
@@ -93,7 +96,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives']
   })
   
    .state('app.edit-profile', {
-    url: "/edit-profile",
+       url: "/edit-profile",
+       cache: false,
     views: {
       'menuContent': {
         templateUrl: "templates/edit-profile.html"
@@ -102,7 +106,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives']
   })
   
   .state('app.profile', {
-    url: "/profile",
+      url: "/profile",
+      cache: false,
     views: {
       'menuContent': {
         templateUrl: "templates/profile.html"
@@ -119,7 +124,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives']
     }
   })
     .state('app.login', {
-      url: "/login",
+        url: "/login",
+        cache: false,
       views: {
         'menuContent': {
           templateUrl: "templates/login.html",
@@ -152,7 +158,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives']
 
 	
 	.state('app.event', {
-      url: "/event",
+	    url: "/event",
+        cache: false,
       views: {
         'menuContent': {
           templateUrl: "templates/event.html",
@@ -162,7 +169,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives']
     })
 	
 	.state('app.event-info', {
-      url: "/event-info",
+	    url: "/event-info",
+        cache: false,
       views: {
         'menuContent': {
           templateUrl: "templates/event-info.html",
@@ -182,7 +190,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives']
     })
 
 	.state('app.friends', {
-      url: "/friends",
+	    url: "/friends",
+        cache: false,
       views: {
         'menuContent': {
           templateUrl: "templates/friends.html"

@@ -98,7 +98,7 @@ angular.module('starter.controllers', [])
 
 .controller('EventsCtrl', function ($scope, $http, Datasharing) {
 
-    $http.get('http://www.icreax.in/icrowding_server/listevents.php')
+    $http.post('http://www.icreax.in/icrowding_server/listevents.php', {userid: localStorage.getItem('username')})
     .success(function (response) {
         $scope.events = response;
     });
@@ -121,6 +121,10 @@ angular.module('starter.controllers', [])
     .success(function (response) {
         $scope.eventinfo = response;
     })
+
+    $scope.joinevent = function (eventid) {
+
+    }
 
 })
 
@@ -266,9 +270,25 @@ angular.module('starter.controllers', [])
         }
         else
         {
-            $http.post('http://www.icreax.in/icrowding_server/getresults.php', {keyword: $scope.data.keyword, targettype: $scope.data.targettype})
+            $http.post('http://www.icreax.in/icrowding_server/getresults.php', {keyword: $scope.data.keyword, targettype: $scope.data.targettype, username: localStorage.getItem('username')})
         .success(function (response) {
-            $scope.results = response;
+
+            if (response == 'notfound')
+            {
+                if ($scope.data.targettype == 'E')
+                {
+                    navigator.notification.alert('No matching Event found!', function () { }, 'Oops!');
+                }
+                else if($scope.data.targettype == 'P')
+                {
+                    navigator.notification.alert('No matching User found!', function () { }, 'Oops!');
+                }
+            }
+            else
+            {
+                $scope.results = response;
+            }
+     
         })
         }
         
@@ -285,15 +305,37 @@ angular.module('starter.controllers', [])
     }
  
     $scope.joinevent = function (eventid) {
-        
+        $http.post('http://www.icreax.in/icrowding_server/addtoEvent.php', { eventid: eventid, userid: localStorage.getItem('username') })
+        .success(function (response) {
+            if(response == 'success')
+            {
+                navigator.notification.alert('Event is in your List!', function () {
+
+                }, 'Done');
+            }
+            else
+            {
+                navigator.notification.alert('Something went wrong! Try again!', function () {
+
+                }, 'Sorry');
+            }
+        })
     }
 
     $scope.addfriend = function (userid) {
         $http.post('http://www.icreax.in/icrowding_server/addfriend.php', { friendid: userid,senderid: localStorage.getItem('username') })
         .success(function (response) {
-            if(response == success)
+            if(response == 'success')
             {
-                navigator.notification.alert('')
+                navigator.notification.alert('Friend request has been sent!', function () {
+
+                }, 'Done');
+            }
+            else
+            {
+                navigator.notification.alert('Something Went wrong! Please try again.', function () {
+
+                }, 'Sorry');
             }
         })
     }
