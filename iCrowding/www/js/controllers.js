@@ -135,6 +135,13 @@ angular.module('starter.controllers', [])
 
     }
 
+    $scope.invitefriends = function (eventid) {
+
+        $scope.passingparams.passid = eventid;
+        window.location.href = '#/app/friends-invite';
+
+    }
+
 })
 
 .controller('EventCtrl', function ($scope, $http) {
@@ -245,15 +252,27 @@ angular.module('starter.controllers', [])
     }
 
 })
-.controller('InviteCtrl', function ($scope, $http) {
-    $http.post("http://www.icreax.in/icrowding_server/getfriends.php", {userid: localStorage.getItem('username')})
+.controller('InviteCtrl', function ($scope, $http, Datasharing) {
+
+    $scope.passingparams = Datasharing;
+
+    $http.post("http://www.icreax.in/icrowding_server/getfriends.php", { userid: localStorage.getItem('username'), eventid: $scope.passingparams.passid })
     .success(function (response) {
         $scope.friends = response;
     });
 
     $scope.invite = function () {
-        debugger;
-        console.log($scope.data);
+        
+        $http.post('http://www.icreax.in/icrowding_server/invitefriends.php', { eventid: $scope.passingparams.passid, friendslist: $scope.data.invited })
+        .success(function (response) {
+            if(response == 'success')
+            {
+                navigator.notification.alert('Your friends have been invited!', function () {
+                    window.location.href = "#/app/event";
+                }, 'Done!');
+            }
+        });
+
     }
 })
 .controller('LogoutCtrl', function ($scope) {
