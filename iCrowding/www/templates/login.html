@@ -1,7 +1,5 @@
 <ion-view view-title="iCrowding" class="main-login">
- 
-   
- <ion-content hide-nav-bar="true" ng-controller="loginCtrl">
+ <ion-content ng-controller="loginCtrl">
      <form id="loginform" ng-submit="login();">
          <div class="content">
              <h3>Login</h3>
@@ -34,10 +32,10 @@
      </form>
       </div>
       <div class="row">
-       <div class="col"> <a href="#/app/forgot" class="button-a right-icon">Forgot Password <i class="ion-ios-help-outline"></i></a></div>
+       <div class="col"> <a href="#/notloggedin/forgot" class="button-a right-icon">Forgot Password <i class="ion-ios-help-outline"></i></a></div>
        </div>
         <div class="row">
-       <div class="col"> <a href="#/app/create" class="button-a right-icon">Create Account<i class="ion-android-add"></i></a></div>
+       <div class="col"> <a href="#/notloggedin/create" class="button-a right-icon">Create Account<i class="ion-android-add"></i></a></div>
        </div>
       
      </ion-content>

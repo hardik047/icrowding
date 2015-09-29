@@ -77,7 +77,9 @@ angular.module('starter.controllers', [])
             }
             else if(response.email.toLowerCase() == $scope.data.username.toLowerCase() && response.password == $scope.data.password)
             {
+                localStorage.setItem('userid', response.id);
                 localStorage.setItem('username', response.email);
+                localStorage.setItem('stayloggedin', $scope.data.loggedinflag);
                 if($scope.data.loggedinflag == 1)
                     localStorage.setItem('password', response.password);
                 window.location.href = '#/app/location';
@@ -91,6 +93,10 @@ angular.module('starter.controllers', [])
         });
 
     }
+})
+
+.controller('notloggedinCtrl', function ($scope) {
+
 })
 
 .controller('PlaylistCtrl', function($scope, $stateParams) {
@@ -120,7 +126,10 @@ angular.module('starter.controllers', [])
     $http.post('http://www.icreax.in/icrowding_server/geteventinfo.php', { eventid: $scope.passingparams.passid })
     .success(function (response) {
         $scope.eventinfo = response;
-    })
+        if (response[0].host == localStorage.getItem('userid')) {
+            $('#delbutton').css('display', 'block');
+        }
+    });
 
     $scope.joinevent = function (eventid) {
 
@@ -222,7 +231,7 @@ angular.module('starter.controllers', [])
             if(response == 'success')
             {
                 navigator.notification.alert('You have successfully signed up! Login to continue..', function () {
-                    window.location.href = "#/app/login";
+                    window.location.href = "#/notloggedin/login";
                 }, 'Welcome!');
             }
             else
@@ -252,17 +261,16 @@ angular.module('starter.controllers', [])
         localStorage.removeItem('username');
         localStorage.removeItem('password');
 
-        window.location.href = "#/app/login";
+        window.location.href = "#/notloggedin/login";
     }
 })
 .controller('SearchCtrl', function ($scope, $http, Datasharing) {
 
     $scope.data = {}
     $scope.passingparams = Datasharing;
-
     $scope.searchnow = function () {
 
-        if ($scope.data.targettype == '')
+        if ($scope.data.targettype == undefined)
         {
             navigator.notification.alert('Please select either Event or People to search!', function () {
 

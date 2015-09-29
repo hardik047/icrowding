@@ -10,12 +10,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives']
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
       // for form inputs)
-      if (localStorage.getItem('username') != null && localStorage.getItem('password') != null)
-      {
-          alert(localStorage.getItem('username'));
-          window.location.href = '#/app/location';
-          $(".left-buttons #menu-button, a.notifications-bell, #footer-tab").fadeIn();
-      }
 
     if (window.StatusBar) {
       // org.apache.cordova.statusbar required
@@ -40,6 +34,13 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives']
     abstract: true,
     templateUrl: "templates/home.html",
     controller: 'AppCtrl'
+  })
+
+  .state('notloggedin', {
+      url: "/notloggedin",
+      abstract: true,
+      templateUrl: "templates/notloggedin.html",
+      controller: 'notloggedinCtrl'
   })
 
   .state('app.create-event', {
@@ -123,7 +124,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives']
       }
     }
   })
-    .state('login', {
+    .state('notloggedin.login', {
         url: "/login",
         cache: false,
       views: {
@@ -134,7 +135,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives']
       }
     })
 	
-	 .state('app.forgot', {
+	 .state('notloggedin.forgot', {
       url: "/forgot",
       views: {
         'menuContent': {
@@ -144,7 +145,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives']
       }
     })
 	
-	.state('app.create', {
+	.state('notloggedin.create', {
       url: "/create",
       views: {
         'menuContent': {
@@ -201,7 +202,20 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives']
     });
   
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/login');
+    
+  if (localStorage.getItem('username') == null && localStorage.getItem('password') == null)
+  {
+      $urlRouterProvider.otherwise('/notloggedin/login');
+  }
+  else if (localStorage.getItem('stayloggedin') == 'true')
+  {
+      $urlRouterProvider.otherwise('/app/location');
+  }
+  else
+  {
+      $urlRouterProvider.otherwise('/notloggedin/login');
+  }
+
 })
 .factory('Datasharing', function () {
     datasharing = {};
