@@ -58,7 +58,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives']
        cache: false,
     views: {
       'menuContent': {
-        templateUrl: "templates/notifications.html"
+          templateUrl: "templates/notifications.html",
+          controller: "notificationsCtrl"
       }
     }
   })

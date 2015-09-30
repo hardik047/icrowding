@@ -96,4 +96,5 @@
   <preference name="SuppressesIncrementalRendering" value="True" />
   <vs:plugin name="org.apache.cordova.dialogs" version="0.3.0" />
   <vs:plugin name="cordova-plugin-keyboard" version="1.1.2" src="https://github.com/cjpearson/cordova-plugin-keyboard.git" />
+  <vs:plugin name="org.apache.cordova.file-transfer" version="0.5.0" />
 </widget>

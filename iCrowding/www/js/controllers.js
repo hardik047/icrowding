@@ -212,6 +212,11 @@ angular.module('starter.controllers', [])
             return false;
         }
 
+        if ($scope.data.phone == '') {
+            navigator.notification.alert('Please enter Contact number!', function () { }, 'Attention!');
+            return false;
+        }
+
         if ($scope.data.email == '') {
             navigator.notification.alert('Please enter your correct email!', function () { }, 'Attention!');
             return false;
@@ -232,7 +237,7 @@ angular.module('starter.controllers', [])
             return false;
         }
 
-        $http.post('http://www.icreax.in/icrowding_server/register.php', { fname: $scope.data.fname, lname: $scope.data.lname, email: $scope.data.email, password: $scope.data.password, gender: $scope.data.gender, height: $scope.data.height, weight: $scope.data.weight, age: $scope.data.age, sexuality: $scope.data.sexuality, occupation: $scope.data.occupation, seeking: $scope.data.seeking })
+        $http.post('http://www.icreax.in/icrowding_server/register.php', { fname: $scope.data.fname, lname: $scope.data.lname, phone: $scope.data.phone, email: $scope.data.email, password: $scope.data.password, gender: $scope.data.gender, height: $scope.data.height, weight: $scope.data.weight, age: $scope.data.age, sexuality: $scope.data.sexuality, occupation: $scope.data.occupation, seeking: $scope.data.seeking })
         .success(function (response) {
 
             if(response == 'success')
@@ -254,6 +259,7 @@ angular.module('starter.controllers', [])
 })
 .controller('InviteCtrl', function ($scope, $http, Datasharing) {
 
+    $scope.data = {};
     $scope.passingparams = Datasharing;
 
     $http.post("http://www.icreax.in/icrowding_server/getfriends.php", { userid: localStorage.getItem('username'), eventid: $scope.passingparams.passid })
@@ -263,7 +269,16 @@ angular.module('starter.controllers', [])
 
     $scope.invite = function () {
         
-        $http.post('http://www.icreax.in/icrowding_server/invitefriends.php', { eventid: $scope.passingparams.passid, friendslist: $scope.data.invited })
+        var form = document.getElementById('invitationform');
+        var chks = form.querySelectorAll('input[type="checkbox"]');
+        var checked = [];
+        for (var i = 0; i < chks.length; i++) {
+            if (chks[i].checked) {
+                checked.push(chks[i].value)
+            }
+        }
+
+        $http.post('http://www.icreax.in/icrowding_server/invitefriends.php', { eventid: $scope.passingparams.passid, friendslist: checked })
         .success(function (response) {
             if(response == 'success')
             {
@@ -394,13 +409,20 @@ angular.module('starter.controllers', [])
 
 .controller('friendsCtrl', function ($scope, $http) {
 
-    $http.post('http://www.icreax.in/icrowding_server/listfriends..php', { userid: localStorage.getItem('username') })
+    $http.post('http://www.icreax.in/icrowding_server/listfriends.php', { userid: localStorage.getItem('username') })
     .success(function (response) {
         $scope.friends = response;
     })
 
 })
 
+.controller('notificationsCtrl', function ($scope, $http) {
+
+    $http.post('http://www.icreax.in/icrowding_server/getnotifications.php', {userid: localStorage.getItem('username')})
+    .success(function (response) {
+        $scope.notifications = response;
+    })
+})
 
 
 
