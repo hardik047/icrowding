@@ -1,0 +1,18 @@
+<ion-view view-title="iCrowding">
+    <ion-content class="event-info"  style="overflow:scroll">
+        <div class="scroll">
+		
+			<div class="list" >
+                
+                <a class="item item-avatar item-icon-right" ng-click="gotoChat(conversation.id)" ng-repeat="conversation in conversations" style="background-color: rgba(255,255,255,0.7); border-bottom: 0.5px solid rgb(203, 185, 185); margin-bottom: 0px !important;">
+                    <img src="http://www.icreax.in/icrowding_server/images/users/{{conversation.email}}.jpg" onerror="this.src = 'img/profile.jpg';">
+                    <h2 ng-bind="conversation.fname"></h2>
+                    <p> &nbsp;</p>
+                    <span class="badge badge-assertive" style="right: 12px !important;">0</span>
+                </a>
+                
+			</div>
+		
+        </div>
+    </ion-content>
+</ion-view>

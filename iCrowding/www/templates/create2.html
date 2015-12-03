@@ -1,0 +1,28 @@
+<ion-view view-title="interests">
+  <ion-content>
+    <p class="card" style="margin: 15px; padding: 5px; border-radius: 1%;background-color: rgba(245, 251, 158, 0.5) !important; font-weight: 600;">Now tell us your interests. (Maximum of 5)</p>
+	  <div class="list">
+	  	<div id="list tagsList">
+          <ion-list id="selected" class="list">
+              <li class="item item-icon-right" ng-repeat="selectedTag in selectedTags" style="font-size: small; padding: 0px 20px;">
+                <h4 style="font-size:medium; margin-top: 15px;">{{selectedTag}}</h4>
+                <i class="icon ion-close" ng-click="removeTag($index)"></i>
+              </li>
+          </ion-list>
+          <label class="item item-input even" style="margin-bottom: 0px;">
+              <i class="ion-android-list"></i>
+              <input type="text" placeholder="Interests" id="searchInput" ng-keydown="checkKeyDown($event)" class="form-control" ng-model="data.searchText" ng-change="search()" />
+              <br>
+          </label>
+          <ion-list id="suggestions" class="list pac-container" style="width: 70%; max-width: 400px; margin-left: 50px; display: none;" ng-classeven="even" ng-classodd="odd">
+              <li class="item pac-item-query" ng-click="addToSelectedTags(-2)" ng-class="{active : selectedIndex===$index}" style="padding: 15px 20px;">{{data.searchText}}</li>
+              <li ng-repeat="suggestion in suggestions" class="item pac-item pac-matched" ng-click="addToSelectedTags($index)" style="font-size: small; padding: 0px 20px; min-height: 38px;" ng-class="{active : selectedIndex===$index}">{{suggestion}}</li>
+          </ion-list>
+          <div class="col">
+                  <button class="button button-block button-cyan" ng-click="updatetags()" >Save</button>
+              </div>
+        </div>
+      
+	  </div>
+  </ion-content>
+</ion-view>

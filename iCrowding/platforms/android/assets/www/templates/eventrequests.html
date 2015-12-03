@@ -1,0 +1,24 @@
+﻿<ion-view view-title="iCrowding">
+    <ion-content>
+        <h3>Event Requests</h3>
+
+        <ion-list class="list">
+
+            <li class="item" ng-repeat="event in events">
+                <div class="half" style="float:left; padding-right: 20px;">
+                    <span style="white-space:normal;">Add {{event.username}} to {{event.releventname}}</span>
+                </div>
+                <div class="buttons" style="float:right;">
+                    <button class="button button-balanced" ng-click="confirmrequest({{event.releventid}},{{event.id}})">
+                        <i class="icon ion-android-done"></i>
+                    </button>
+                    <button class="button button-assertive" ng-click="deleterequest({{event.releventid}},{{event.id}})">
+                        <i class="icon ion-android-close"></i>
+                    </button>
+                </div>
+            </li>
+
+        </ion-list>
+
+    </ion-content>
+</ion-view>

@@ -1,35 +1,28 @@
 <ion-view view-title="iCrowding">
   <ion-content class="just-now">
-    <h3>Just Now</h3>
-    
-    
+    <p class="card" style="margin: 15px; padding: 5px; border-radius: 1%;background-color: rgba(245, 251, 158, 0.5) !important; font-weight: 600;">Choose an event to share with the iCrowding community! Your event will appear on the map publicly.</p>
      <div class="list">
-                          <label class="item item-input item-select">
+                          <label class="item item-input item-select even">
                        
-                            <select>
-                              <option value="" class="grey">First Event</option>
-                              <option value="0">Second Event</option>
-                              <option value="1">Third Event</option>
-                               <option value="1">Fourth Event</option>
-                                <option value="1">Fifth Event</option>
+                            <select ng-model="data.eventid">
+                              <option value="" disabled selected>Select an event</option>
+                              <option ng-repeat="event in events" value="{{event.id}}">
+                                  {{event.fname}}
+                              </option>
                             </select>
                           
                         </label>
-                        
-                         <label class="item item-input item-select">
-                            <select>
-                              <option value="" class="grey">5 Mile</option>
-                              <option value="0">10 Mile</option>
-                              <option value="1">15 Mile</option>
-                               <option value="1">20 Mile</option>
-                                <option value="1">25 Mile</option>
-                            </select>
-                          </label>
                      
-                          <div class="col marginbottom">
-                          <button class="button button-block button-positive blue">Just Now</button>
+                          <div class="col">
+                          <button class="button button-block button-cyan" ng-click="shareevent()">Share</button>
                           </div>  
                        
               </div><!-- List -->
+              <h3><strong>Shared Events</strong></h3>
+      <ion-list class="list" style="margin-top: -50px;">
+          <div class="item icon-right even" ng-repeat="sharedevent in sharedevents" ng-click="gotoevent({{sharedevent.id}})">
+              {{sharedevent.fname}}
+          </div>
+      </ion-list>
   </ion-content>
 </ion-view>

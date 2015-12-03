@@ -1,17 +1,16 @@
 <ion-view view-title="iCrowding">
-    <ion-content>
+    <ion-content >
         <h3>Friends</h3>
         <form id="invitationform" ng-submit="invite();">
             <ion-list class="list">
 
                 <ion-item class="item item-avatar" ng-repeat="friend in friends">
-                    <img src="img/venkman.jpg">
+                    <img src="http://www.icreax.in/icrowding_server/images/users/{{friend.email}}.jpg">
                     <div class="half">
-                        <h2>{{friend.fname}}</h2>
+                        <h2 ng-bind="friend.fname"></h2>
                     </div>
                     <div class="half">
-                        <label class="checkbox"><input type="checkbox" value="data.{{friend.id}}" /></label>
-                        <a ><i class="ion-android-calendar"></i></a>
+                        <label class="checkbox"><input type="checkbox" value="{{friend.id}}" /></label>
                     </div>
                 </ion-item>
 
@@ -19,7 +18,7 @@
 
             <div class="row">
                 <div class="col marginbottom">
-                    <button class="button button-block button-positive blue right-icon margin-top">Invite<i class="ion-android-add"></i></button>
+                    <button class="button button-block button-positive">Invite<i class="ion-android-add"></i></button>
                 </div>
             </div>
         </form>

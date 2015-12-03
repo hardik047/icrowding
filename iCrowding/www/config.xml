@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<widget xmlns:cdv="http://cordova.apache.org/ns/1.0" id="io.cordova.appb64ec64666e9432a9caf5f01009feb88" version="1.0.2" xmlns:gap="http://phonegap.com/ns/1.0" xmlns="http://www.w3.org/ns/widgets">
+  <name>iCrowding</name>
+  <description>A blank project that uses Apache Cordova to help you build an app that targets multiple mobile platforms: Android, iOS, Windows, and Windows Phone.</description>
+  <author href="http://cordova.io" email="dev@cordova.apache.org">Apache Cordova Team </author>
+  <content src="index.html" />
+  <access origin="*" />
+  <allow-navigation href="http://*/*" />
+  <preference name="KeepRunning" value="True" />
+  <preference name="ShowTitle" value="False" />
+  <preference name="InAppBrowserStorageEnabled" value="True" />
+  <preference name="SuppressesIncrementalRendering" value="False" />
+  <preference name="KeyboardDisplayRequiresUserAction" value="false" />
+  <feature name="Keyboard">
+    <param name="ios-package" value="IonicKeyboard" onload="true" />
+  </feature>
+  <gap:plugin name="org.apache.cordova.dialogs"/>
+  <gap:plugin name="org.apache.cordova.file-transfer"/>
+  <gap:plugin name="org.apache.cordova.camera" />
+  <gap:plugin name="org.apache.cordova.geolocation" />
+  <gap:plugin name="org.apache.cordova.contacts" />
+  <gap:plugin name="org.apache.cordova.statusbar" />
+  <gap:plugin name="com.cordova.plugins.sms" version="0.1.1" />
+  <gap:plugin name="com.indigoway.cordova.whitelist.whitelistplugin" version="1.1.1" />
+  <gap:plugin name="com.synconset.imagepicker" spec="1.0.4" source="pgb" />
+  <gap:plugin name="com.ionic.keyboard" spec="1.0.3" source="pgb" />
+</widget>

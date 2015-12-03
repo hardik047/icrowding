@@ -1,0 +1,24 @@
+﻿<ion-view view-title="iCrowding">
+    <ion-content class="event-info"  style="height: 60%; overflow:scroll">
+        <ion-list>
+            <ion-item class="item-text-wrap item-avatar item-icon-right" ng-repeat="chat in chats">
+                <img ng-src="http://www.icreax.in/icrowding_server/images/users/{{chat.senderemail}}.jpg">
+                <p style="word-wrap: break-word; font-size: 1em;" ng-bind="chat.content"></p>
+                <br />
+                <span style="float: right; text-align:right; font-size: smaller; font-style: italic;"><strong>{{chat.sendername}}</strong></span>
+                <br />
+            </ion-item>
+        </ion-list>
+    </ion-content>
+    <div id="adder" style="width: 100%; position: fixed; bottom:7%; padding-bottom: 4%; background-color: #fff; z-index: 1000;">
+        <div class="list">
+            <form id="commentForm" ng-submit="submitComment();">
+                <label class="item item-input">
+                    <textarea rows="4" placeholder="Enter your message here..." ng-model="data.comment"></textarea>
+                </label>
+                <br />
+                <button style="margin-right:5%;" type="submit" class="button button-block button-positive">Leave Message</button>
+            </form>
+        </div>
+    </div>
+</ion-view>

@@ -1,21 +1,23 @@
 <ion-view view-title="iCrowding">
   <ion-content class="notification">
-    <h3>Notifications</h3>
-    
     <ion-list class="list">
-    <li class="item" ng-repeat="notification in notifications">
-    <div class="row">
-      <div class="col col-15" style="color: #ff0000;">New</div>
-      <div class="col col-75 col-offset-10" style="width: 70%;">{{notification.text}}</div>
+    <li class="item" style="background-color: rgba(255,255,255,0.6); padding: 0px 5px 0px 15px; border-bottom: 0.5px solid rgb(197, 187, 187);" ng-repeat="notification in notifications">
+    <div class="row" style="border-bottom: 1px solid #aaa;">
+        <div ng-if="notification.status == 0">
+            <div class="col col-10" style="color: #ff0000;">New</div>
+        </div>
+        <div ng-if="notification.type == 'event'">
+            <a class="col col-90 col-offset-10" style="white-space:normal; font-size: 1.2em; font-weight: bold;" href="#/app/eventrequests"  ng-bind="notification.text"></a>
+        </div>
+        <div ng-if="notification.type == 'friend'">
+            <a class="col col-90 col-offset-10" style="white-space:normal; font-size: 1.2em; font-weight: bold;" href="#/app/friendrequests" ng-bind="notification.text"></a>
+        </div>
+        <div ng-if="notification.type == 'eventpassive'">
+            <div class="col col-90 col-offset-10" style="white-space:normal; font-size: 1.2em; font-weight: bold;" href="#/app/friendrequests" ng-click="readit({{notification.idnotifications}})" ng-bind="notification.text"></div>
+        </div>
      </div>
     </li>
     </ion-list>
-   
-   
-
-  
-   </div><!-- list -->
-
  
   </ion-content>
 </ion-view>

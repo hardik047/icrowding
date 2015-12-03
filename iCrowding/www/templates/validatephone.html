@@ -1,0 +1,21 @@
+﻿<ion-view view-title="iCrowding">
+    <ion-content>
+        <p class="card" style="margin: 15px; padding: 5px; border-radius: 1%;background-color: rgba(245, 251, 158, 0.5) !important; font-weight: 600;">Verify your phone number here.</p>
+
+        <ion-list class="list">
+            <form name="myForm">
+                <div class="item">
+                    <label class="item item-input even" style="margin: 0px;">
+                        <i class="ion-ios-locked"></i>
+                        <input type="number" ng-model="data.vcode" name="vcode" placeholder="Verification code" required>
+                    </label>
+                </div>
+                <div class="padding" style="text-align: center;">
+                    <button class="button button-block button-cyan icon-right ion-chevron-right" ng-click="validatephone();">Verify</button>
+                    <a class="button button-small button-clear button-cyan" style="line-height: 3; font-size: small; margin: 3% auto; background: rgba(0,0,0,0.5); font-weight: bold !important;" href="#/notloggedin/login"><strong>Do this later</strong></a>
+                </div>
+            </form>
+        </ion-list>
+
+    </ion-content>
+</ion-view>

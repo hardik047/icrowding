@@ -1,12 +1,16 @@
 <ion-view view-title="iCrowding">
   <ion-content class="event">
-    <h3>Events</h3>
+    <div class="button-bar" style="margin-top: 5%;">
+      <a href="#/app/create-event" class="button button-positive">Create New</a>
+      <a href="#/app/eventrequests" class="button button-positive">Requests</a>
+    </div>
+      <h3>Events</h3>
+
     <ion-list class="list">
     <li class="item" ng-repeat="event in events">
     <div class="row">
-        <div class="col col-20">{{event.date}} - </div>
-        <div class="col col-45" ng-click="gotoEvent({{event.id}})"> <span class="event-detail">{{event.fname}}</span></div>
-        <div class="col col-10"><a href="#/app/location"><i class="ion-ios-location-outline"></i></a></div>
+        <div class="col col-20" ng-bind="event.date"></div>
+        <div class="col col-45" ng-click="gotoEvent({{event.id}})"> <span class="event-detail" style="margin-left: 20px;" ng-bind="event.fname"></span></div>
      </div>
     </li> 
 </ion-list>

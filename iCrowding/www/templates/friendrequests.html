@@ -1,0 +1,24 @@
+﻿<ion-view view-title="iCrowding">
+    <ion-content>
+        
+        <ion-list class="list">
+
+            <li class="item item-avatar odd" ng-repeat="friend in friends">
+                <img src="http://www.icreax.in/icrowding_server/images/users/{{friend.email}}.jpg" ng-click="gotoprofile('{{friend.email}}')">
+                <div class="half" style="float:left; padding-right: 20px;" ng-click="gotoprofile('{{friend.email}}')">
+                    <h2 style="font-size: 15px;">{{friend.fname}}</h2>
+                </div>
+                <div class="buttons" style="float:right;">
+                    <button class="button button-balanced" style="padding: 0px;" ng-click="confirmfriend({{friend.id}})">
+                        <i class="icon ion-android-done"></i>
+                    </button>
+                    <button class="button button-assertive" style="padding: 0px;" ng-click="deleterequest({{friend.id}})">
+                        <i class="icon ion-android-close"></i>
+                    </button>
+                </div>
+            </li>
+
+        </ion-list>
+
+    </ion-content>
+</ion-view>

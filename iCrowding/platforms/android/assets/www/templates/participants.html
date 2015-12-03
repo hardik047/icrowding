@@ -1,0 +1,17 @@
+﻿<ion-view view-title="iCrowding">
+    <ion-content>
+        <h3>Participants</h3>
+
+        <ion-list class="list">
+
+            <li class="item item-avatar" ng-repeat="friend in friends">
+                <img src="http://www.icreax.in/icrowding_server/images/users/{{friend.email}}.jpg">
+                <div class="half">
+                    <h2>{{friend.fname}}</h2>
+                </div>
+            </li>
+
+        </ion-list>
+
+    </ion-content>
+</ion-view>

@@ -1,18 +1,19 @@
 <ion-view view-title="iCrowding" class="main-login">
- <ion-content ng-controller="loginCtrl">
+ <ion-content ng-controller="loginCtrl" style="background:url('../img/background.jpg'); background-size: 150%;">
      <form id="loginform" ng-submit="login();">
          <div class="content">
-             <h3>Login</h3>
+             <h4 style="text-align: center; margin-top: 8%; color: #000;">Welcome to</h4>
+             <h2 style="font-family: Gotham-Rounded-Light; text-align: center; color: rgb(0, 104, 90);">iCrowding</h2>
 
-             <div class="list">
+             <div class="list" style="margin-top: 7%;">
 
-                 <label class="item item-input">
+                 <label class="item item-input  item-floating-label odd">
                      <i class="ion-android-person"></i>
-                     <input type="text" ng-model="data.username" name="username" placeholder="Username" required>
+                     <input type="email" ng-model="data.username" name="username" style="font-weight: bold !important;" placeholder="Email">
                  </label>
-                 <label class="item item-input">
+                 <label class="item item-input  item-floating-label odd">
                      <i class="ion-ios-locked"></i>
-                     <input type="password" ng-model="data.password" name="password" placeholder="Password" required>
+                     <input type="password" ng-model="data.password" name="password" style="font-weight: bold !important;" placeholder="Password">
                  </label>
 
                  <label class="checkbox">
@@ -26,19 +27,18 @@
 
 
          <div class="row">
-             <div class="col">
-                 <input type="submit" class="button button-block button-positive blue right-icon" value="Login" />
+             <div class="col" style="text-align: center;">
+                 <input type="submit" class="button button-block button-cyan" style="width: 80%;" value="Login" />
              </div>
      </form>
       </div>
-      <div class="row">
-       <div class="col"> <a href="#/notloggedin/forgot" class="button-a right-icon">Forgot Password <i class="ion-ios-help-outline"></i></a></div>
+      <div class="row" style="text-align: center;">
+       <div class="col"> <a class="button button-small button-clear button-cyan" style="line-height: 3; font-size: small; margin-top: -2%; background: rgba(0,0,0,0.5); font-weight: bold !important;" href="#/notloggedin/forgot"><strong>Forgot Password</strong></a></div>
        </div>
         <div class="row">
-       <div class="col"> <a href="#/notloggedin/create" class="button-a right-icon">Create Account<i class="ion-android-add"></i></a></div>
+       <div class="col" style="text-align: center;"> <a href="#/notloggedin/create" class="button button-outline button-cyan" style="margin-top: 3%; width: 80%; line-height: 3.3 !important; color: rgb(0, 104, 90) !important; background-color:rgb(243, 240, 216); ">Create an Account </a></div>
        </div>
       
      </ion-content>
    
 </ion-view>
- <ion-item menu-close href="#/app/home">

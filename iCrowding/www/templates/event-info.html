@@ -1,45 +1,69 @@
 <ion-view view-title="iCrowding">
   <ion-content class="event-info">
-    <h3>Event Info</h3>
+      
     <ul class="list" ng-repeat="info in eventinfo">
-    <li class="item">
-    <div class="row">
-
-      <div class="col col-25 info-left">Title</div>
-      <div class="col col-70">{{info.fname}}</div>
-     </div>
-    </li>
-    <li class="item">
-    <div class="row">
-      <div class="col col-25 info-left">Date</div>
-       <div class="col col-70">{{info.date}}</div>
-     </div>
-    </li>
-     <li class="item">
-    <div class="row">
-      <div class="col col-25 info-left">Time</div>
-      <div class="col col-70">{{info.time}}</div>
-     </div>
-    </li>
-    
-     <li class="item">
-    <div class="row">
-      <div class="col col-25 info-left">Place</div>
-      <div class="col col-70">{{info.location}}</div>
-     </div>
-    </li>
-     <li class="item">
-    <div class="row">
-      <div class="col col-25 info-left">Keyword</div>
-      <div class="col col-70">{{info.keywords}}</div>
-     </div>
-    </li>
+        
+        <h3 ng-bind="info.fname" style="font-family: Gotham-Rounded-medium; font-weight: normal !important;"></h3>
+    <div class="item card" style="width: 80%; max-width: 400px; min-height: 0px; margin: 0px auto;">
+        <img src="http://www.icreax.in/icrowding_server/images/events/{{info.fname}}_{{info.host}}.jpg" onerror="this.parentElement.style.visibility = 'hidden';" />
+    </div>
+    <label class="item item-input odd"><div class="col">Date: &nbsp;&nbsp;</div>
+        <i class="ion-ios-calendar-outline"></i>
+        <span ng-bind="info.fdate" class="profileinfo" style="-webkit-text-fill-color: #000000" ></span>
+    </label>
+     <label class="item item-input even"><div class="col">Time: &nbsp;&nbsp;</div>
+        <i class="ion-clock"></i>
+        <span ng-bind="info.ftime" class="profileinfo" style="-webkit-text-fill-color: #000000" ></span>
+    </label>
+    <label class="item item-input item-text-wrap odd"><div class="col-50">Location: &nbsp;&nbsp;</div>
+        <i class="ion-ios-location" style="border-right: 0px;"></i>
+        <span ng-bind="info.location" class="profileinfo" style="-webkit-text-fill-color: #000000; text-align: right;" ></span>
+    </label>
+     
+     <label class="item item-input item-text-wrap even"><div class="col">Keywords: &nbsp;&nbsp;</div>
+        <i class="ion-clock"></i>
+        <span class="col-66 profileinfo" style="-webkit-text-fill-color: #000000" >
+            <div ng-repeat="keyword in info.keywords" style="display: flex; float: right; margin: 3px; padding: 3px;  background-color: rgb(248, 226, 164); color: #FFF; border-radius: 5%;">
+                {{keyword}}
+            </div>
+        </span>
+    </label>
+    <label class="item item-input item-text-wrap odd"><div class="col">Invited: &nbsp;&nbsp;</div>
+        <i class="ion-android-list"></i>
+        <span ng-bind="info.participants" ng-click="seeparticipants();" class="profileinfo" style="-webkit-text-fill-color: #000000" ></span>
+    </label>
     
     <div class="col marginbottom">
-        <button class="button button-assertive" id="delbutton" style="display: none;" ng-click="joinevent({{info.id}});">Delete Event </button>
-        <button class="button button-block blue" id="joinbutton" ng-click="joinevent({{info.id}})">Join Event </button>
-        <button class="button button-block blue" id="joinbutton" ng-click="invitefriends({{info.id}})">Join Event </button>
+        <button class="button button-block button-cyan" id="joinbutton" style="{{visitorbuttonshowstatus}}" ng-click="joinevent({{info.id}})">Join Event </button>
+        <button class="button button-block button-cyan" id="joinbutton" style="{{requeststatus}}" disabled ng-click="joinevent({{info.id}})">Request Peinding </button>
+        <button class="button button-block button-positive" id="delbutton" ng-click="showparticipants({{info.id}})">Participants</button>
+        <button class="button button-block button-cyan" style="{{adminbuttonshowstatus}}" ng-click="invitefriends({{info.id}})">Invite Friends </button>
+        <button class="button button-block button-assertive" id="delbutton" style="{{adminbuttonshowstatus}}" ng-click="deleteevent({{info.id}});">Delete Event </button>
     </div> 
+
+        <ion-item id="adder" style="margin-top: -120px;">
+            <div class="list">
+                <form id="commentForm" ng-submit="submitComment();" style="background-color: #fff;">
+                    <label class="item item-input">
+                        <textarea rows="4" placeholder="Enter your message here..." style="resize: none; margin-top: 5px;" ng-model="data.comment"></textarea>
+                    </label>
+                    <br />
+                    <button style="margin-right:5%;" type="submit" class="button button-block button-positive">Send Message</button>
+                </form>
+            </div>
+        </ion-item>
+
+    <ion-item class="item-text-wrap item-avatar item-icon-right even" ng-repeat="chat in chats">
+        <img ng-src="http://www.icreax.in/icrowding_server/images/users/{{chat.senderemail}}.jpg" onerror="this.src='img/profile.jpg';">
+        <p style="word-wrap: break-word; font-size: medium; color: #000;" ng-bind="chat.content"></p>
+        <br />
+        <span style="float: right; text-align:right; font-size: smaller; font-style: italic;"><strong>{{chat.sendername}}</strong></span>
+        <br />
+    </ion-item>
+        <br />
+        <br />
+        <br />
+        <br />
 </ul>
   </ion-content>
 </ion-view>

@@ -1,0 +1,75 @@
+<ion-view view-title="iCrowding">
+  <ion-content class="event-info">
+    <h3>Event Info</h3>
+    <ul class="list" ng-repeat="info in eventinfo">
+    <li class="item">
+    <div class="row">
+
+      <div class="col col-25 info-left">Title</div>
+      <div class="col col-70" ng-bind="info.fname"></div>
+     </div>
+    </li>
+    <li class="item">
+    <div class="row">
+      <div class="col col-25 info-left">Date</div>
+       <div class="col col-70" ng-bind="info.date"></div>
+     </div>
+    </li>
+     <li class="item">
+    <div class="row">
+      <div class="col col-25 info-left">Time</div>
+      <div class="col col-70" ng-bind="info.formattedtime"></div>
+     </div>
+    </li>
+    
+     <li class="item item-text-wrap" style="background-color: #FFF;">
+    <div class="row">
+      <div class="col col-25 info-left">Place</div>
+      <div class="col col-70" style="word-wrap:break-word;" ng-bind="info.location"></div>
+     </div>
+    </li>
+     <li class="item item-text-wrap" style="background-color: #FFF;">
+    <div class="row">
+      <div class="col col-25 info-left" style="word-wrap: normal;">Keyword</div>
+      <div class="col col-70" ng-bind="info.keywords"></div>
+     </div>
+    </li>
+    <li class="item">
+        <div class="row">
+            <div class="col col-25 info-left">Invited</div>
+            <div class="col col-70" ng-click="seeparticipants();" ng-bind="info.participants"></div>
+        </div>
+    </li>
+    
+    <div class="col marginbottom">
+        <button class="button button-block button-positive" id="joinbutton" style="{{visitorbuttonshowstatus}}" ng-click="joinevent({{info.id}})">Join Event </button>
+        <button class="button button-block button-positive" id="joinbutton" style="{{adminbuttonshowstatus}}" ng-click="invitefriends({{info.id}})">Invite Friends </button>
+        <button class="button button-block button-assertive" id="delbutton" style="{{adminbuttonshowstatus}}" ng-click="deleteevent({{info.id}});">Delete Event </button>
+    </div> 
+
+        <ion-item id="adder" style="margin-top: -70px;">
+            <div class="list">
+                <form id="commentForm" ng-submit="submitComment();">
+                    <label class="item item-input">
+                        <textarea rows="4" placeholder="Enter your message here..." ng-model="data.comment"></textarea>
+                    </label>
+                    <br />
+                    <button style="margin-right:5%;" type="submit" class="button button-block button-positive">Leave Message</button>
+                </form>
+            </div>
+        </ion-item>
+
+    <ion-item class="item-text-wrap item-avatar item-icon-right" ng-repeat="chat in chats">
+        <img ng-src="http://www.icreax.in/icrowding_server/images/users/{{chat.senderemail}}.jpg">
+        <p style="word-wrap: break-word; font-size: 1em;" ng-bind="chat.content"></p>
+        <br />
+        <span style="float: right; text-align:right; font-size: smaller; font-style: italic;"><strong>{{chat.sendername}}</strong></span>
+        <br />
+    </ion-item>
+        <br />
+        <br />
+        <br />
+        <br />
+</ul>
+  </ion-content>
+</ion-view>

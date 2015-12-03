@@ -1,77 +1,70 @@
 <ion-view view-title="iCrowding">
   <ion-content>
-          <h3>Create Account</h3>
-       
       <form id="signupform" ng-submit="signup();">
           <div class="list">
-              <label class="item item-input">
-                  <i class="ion-ios-person-outline"></i>
-                  <input type="text" ng-model="data.fname" placeholder="First Name" required>
+              <label class="item item-input odd">
+                  <i class="ion-ios-person"></i>
+                  <input type="text" ng-model="data.fname" placeholder="Username" required>
               </label>
-              <label class="item item-input">
-                  <i class="ion-ios-person-outline"></i>
-                  <input type="text" ng-model="data.lname" placeholder="Last Name" required>
+              <label class="item item-input even">
+                  <i class="ion-ios-telephone"></i>
+                  <input type="number" ng-model="data.phone" pattern="[0-9]*" placeholder="Phone number" required>
               </label>
-              <label class="item item-input">
-                  <i class="ion-ios-person-outline"></i>
-                  <input type="text" ng-model="data.phone" placeholder="Phone number" required>
-              </label>
-              <label class="item item-input">
-                  <i class="ion-ios-email-outline"></i>
+              <label class="item item-input odd">
+                  <i class="ion-ios-email"></i>
                   <input type="email" ng-model="data.email" placeholder="Email" required>
               </label>
-              <label class="item item-input">
-                  <i class="ion-ios-locked-outline"></i>
+              <label class="item item-input even">
+                  <i class="ion-ios-locked"></i>
                   <input type="password" placeholder="Password" id="pswd"  ng-model="data.password" required>
               </label>
-              <label class="item item-input">
+              <label class="item item-input odd">
                   <i class="ion-ios-locked-outline"></i>
                   <input type="password" placeholder="Confirm Password" id="cpswd" ng-model="data.confirmpassword" required>
               </label>
 
-              <label class="item item-input item-select">
+              <label class="item item-input item-select even">
                   <i class="ion-transgender"></i>
 
-                  <select  ng-model="data.gender" required>
-                      <option value="" class="grey">Gender</option>
-                      <option value="M" selected>Male</option>
-                      <option value="F">Female</option>
+                  <select  ng-model="data.gender" placeholder="Gender" required>
+                      <option value=""  disabled selected>Select Gender</option>
+                      <option value="Male" selected>Male</option>
+                      <option value="Female">Female</option>
+                      <option value="Transsexual">Transsexual</option>
                   </select>
               </label>
 
 
-              <label class="item item-input">
-                  <i class="ion-man"></i>
-                  <input type="number" ng-model="data.height" placeholder="Height" required>
+              <label class="item item-input odd">
+                  <i class="ion-ios-body"></i>
+                  <input type="number" ng-model="data.height" pattern="[0-9]*" placeholder="Height" style="width: 100px;" required><span style="margin-right:40%;">Inches</span>
               </label>
-              <label class="item item-input">
-                  <i class="ion-bag"></i>
-                  <input type="number" placeholder="Weight" ng-model="data.weight" required>
-              </label>
-              <label class="item item-input">
-                  <i class="ion-ios-calendar-outline"></i>
-                  <input type="number" placeholder="Age" ng-model="data.age" required>
-              </label>
-              <label class="item item-input">
+              <label class="item item-input even">
                   <i class="ion-ios-body-outline"></i>
-                  <input ng-model="data.sexuality" type="text" placeholder="Sexual Orientation">
+                  <input type="number" placeholder="Weight" pattern="[0-9]*" ng-model="data.weight" style="width: 100px;" required><span style="margin-right:40%;">Lbs</span>
               </label>
-              <label class="item item-input">
-                  <i class="ion-chatbubble"></i>
+              <label class="item item-input odd">
+                  <i class="ion-ios-calendar-outline"></i>
+                  <input type="number" placeholder="Age" pattern="[0-9]*" ng-model="data.age" style="width: 100px;" required><span style="margin-right:40%;">Years</span>
+              </label>
+              <label class="item item-input item-select even">
+                  <i class="ion-transgender"></i>
+
+                  <select ng-model="data.sexuality" placeholder="Sexual Orientation">
+                      <option value="" disabled selected>Sexual preference</option>
+                      <option value="Straight" selected>Straight</option>
+                      <option value="Gay">Gay</option>
+                      <option value="Bisexual">Bisexual</option>
+                      <option value="Lesbian">Lesbian</option>
+                  </select>
+              </label>
+              <label class="item item-input odd">
+                  <i class="ion-ios-briefcase"></i>
                   <input type="text" placeholder="Occupation"  ng-model="data.occupation" required>
               </label>
-              <label class="item item-input">
-                  <i class="ion-search"></i>
-                  <input type="text" placeholder="What are you seeking" ng-model="data.seeking" required>
-              </label>
-
-
               <div class="col">
-                  <input type="submit" class="button button-block button-positive blue right-icon margin-top" value="Create Account" />
-              </div>
-               <p class="text-center padding marginbottom ">
-                <a class="blue-color" href="#/notloggedin/login">I Already have Account</a>
-            </p>
+                  <input type="submit" class="button button-block button-cyan" value="Create Account" />
+              </div> 
           </div><!-- list -->
       </form> 
   </ion-content>

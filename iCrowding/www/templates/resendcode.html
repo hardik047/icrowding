@@ -1,0 +1,19 @@
+<ion-view view-title="iCrowding">
+    <ion-content>
+        <ion-list class="list">
+            <form name="myForm">
+                <div class="item">
+                    <label class="item item-input even" style="margin: 0px;">
+                        <i class="ion-ios-locked"></i>
+                        <input type="number" ng-model="data.number" name="phone" placeholder="Enter your phone number" required>
+                    </label>
+                </div>
+                <div class="padding" style="text-align: center;">
+                    <button class="button button-block button-cyan icon-right ion-chevron-right" ng-click="resendcode()">Resend code</button>
+                    <a class="button button-small button-clear button-cyan" style="line-height: 3; font-size: small; margin: 3% auto; background: rgba(0,0,0,0.5); font-weight: bold !important;" href="#/notloggedin/login"><strong>Do this later</strong></a>
+                </div>
+            </form>
+        </ion-list>
+
+    </ion-content>
+</ion-view>

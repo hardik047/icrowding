@@ -2,38 +2,21 @@
   <ion-content class="notification">
     <h3>Notifications</h3>
     
-    <ul class="list">
-    <li class="item">
+    <ion-list class="list">
+    <li class="item" ng-repeat="notification in notifications">
     <div class="row">
-      <div class="col col-15">Today</div>
-      <div class="col col-75 col-offset-10">John has join your event</div>
+        <div ng-if="notification.status == 0">
+            <div class="col col-15" style="color: #ff0000;">New</div>
+        </div>
+        <div ng-if="notification.type == 'event'">
+            <a class="col col-75 col-offset-10" style="white-space:normal;" href="#/app/eventrequests"  ng-bind="notification.text"></a>
+        </div>
+        <div ng-if="notification.type == 'friend'">
+            <a class="col col-75 col-offset-10" style="white-space:normal;" href="#/app/friendrequests" ng-bind="notification.text"></a>
+        </div>
      </div>
     </li>
-     <li class="item">
-    <div class="row">
-      <div class="col col-15">Yesterday</div>
-      <div class="col col-75 col-offset-10">Rumit is invited you pizza party</div>
-     </div>
-    </li>
-     <li class="item">
-    <div class="row">
-      <div class="col col-15">05/07/15</div>
-      <div class="col col-75 col-offset-10">Rohit is invited you pizza party</div>
-     </div>
-    </li>
-    <li class="item">
-    <div class="row">
-      <div class="col col-15">04/07/15</div>
-      <div class="col col-75 col-offset-10">Rahul is invited you pizza party</div>
-     </div>
-    </li>
-    </ul>
-   
-   
-
-  
-   </div><!-- list -->
-
+    </ion-list>
  
   </ion-content>
 </ion-view>

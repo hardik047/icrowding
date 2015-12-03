@@ -1,0 +1,50 @@
+<ion-view view-title="iCrowding">
+  <ion-content >
+          <h3>Profile</h3>
+                  <div class="list">
+                      <div class="upload-image">
+                          <button> <img src="img/profile.jpg" onerror="this.src = 'img/profile.jpg';" id="mypic"/></button>
+                      </div>
+                          <label class="item item-input">
+                        <i class="ion-ios-person-outline"></i>
+                          <input type="text" placeholder="username" ng-model="data.fname" style="-webkit-text-fill-color: #000000" readonly="readonly">
+                        </label>
+                        <label class="item item-input">
+                        <i class="ion-ios-email-outline"></i>
+                          <input type="email" placeholder="Email" ng-model="data.email" style="-webkit-text-fill-color: #000000" readonly="readonly">
+                        </label>
+                         <label class="item item-input">
+                          <i class="ion-transgender"></i>
+                            <input type="text" placeholder="Gender" ng-model="data.gender" style="-webkit-text-fill-color: #000000" readonly="readonly">
+                          </label>
+                        <label class="item item-input">
+                        <i class="ion-ios-body"></i>
+                          <input type="text" placeholder="Height" ng-model="data.height" style="-webkit-text-fill-color: #000000" readonly="readonly" ><span style="margin-right:40%;">Inches</span>
+                        </label>
+                         <label class="item item-input">
+                        <i class="ion-ios-body-outline"></i>
+                          <input type="text" placeholder="Weight" ng-model="data.weight" style="-webkit-text-fill-color: #000000" readonly="readonly"><span style="margin-right:40%;">Lbs</span>
+                        </label>
+                         <label class="item item-input">
+                        <i class="ion-ios-calendar-outline"></i>
+                          <input type="text" placeholder="Age" ng-model="data.age" style="-webkit-text-fill-color: #000000" readonly="readonly"><span style="margin-right:40%;">Years</span>
+                        </label>
+                         <label class="item item-input">
+                          <i class="ion-ios-body-outline"></i>
+                          <input type="text" placeholder="Sexual Orientation" style="-webkit-text-fill-color: #000000" ng-model="data.sexuality"  readonly="readonly">
+                        </label>
+                         <label class="item item-input">
+                        <i class="ion-ios-briefcase"></i>
+                          <input type="text" placeholder="Occupation" style="-webkit-text-fill-color: #000000" ng-model="data.occupation"  readonly="readonly">
+                        </label>
+                        <label class="item" style="color: #000;">
+                          <p>Interested in {{data.interest}}</p>
+                        </label>
+                          <div class="col marginbottom">
+                              <a href="#/app/edit-profile" id="editbutton" class="button icon-right ion-android-add button-block button-positive" style="{{adminbuttondisplaystatus}}">Edit Profile</a>
+                              <a ng-click="gotochats()" class="button icon-right ion-ios-chatboxes-outline button-block button-positive" style="{{friendbuttondisplaystatus}}">Messages</a>
+                          </div>   
+                       
+              </div><!-- list -->
+  </ion-content>
+</ion-view>

@@ -1,2 +1,10 @@
 ﻿body {
+    -webkit-backface-visibility: hidden;
+}
+.ui-page {
+    -webkit-backface-visibility: hidden;
+}
+[ng-cloak]
+{
+  display: none !important;
 }

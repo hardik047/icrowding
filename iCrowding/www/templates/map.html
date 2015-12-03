@@ -1,12 +1,16 @@
-<ion-view view-title="iCrowding" ng-controller="MarkerRemoveCtrl">
+<ion-view view-title="iCrowding" ng-controller="MarkerRemoveCtrl" can-swipe-back="false" hide-back-button="true">
   
-<ion-content scroll="true">
-<h3>Location</h3>
-  <div class="mapWrap"  data-tap-disabled="true">
-    <map center="43.07493,-89.381388" zoom="15">
-      <!-- ngRepeat: pos in positions -->
-      <marker ng-repeat=" pos in positions" position="{{pos.lat}},{{pos.lng}}"></marker>
-    </map>
+<ion-content scroll="false" data-tap-disabled="true">
+  <div id="map" data-tap-disabled="true">
   </div>
+  
+  <div class="float-button">
+      <span class="height-fix">
+          <a class="content" href="#/app/create-event">
+          <i class="ion-android-add"> </i>
+          </a>
+      </span>
+  </div>
+<ion-nav-view name="fabContent"></ion-nav-view>
 </ion-content>
 </ion-view>

@@ -1,38 +1,25 @@
 <ion-view view-title="iCrowding">
   <ion-content>
-    <h3>Create Event</h3>
-    
     <div class="list">
         <form id="eventform" ng-submit="createEvent();">
-            <label class="item item-input">
-                <i class="ion-android-calendar"></i>
-                <input type="text" placeholder="Name of the Event" ng-model="model.eventname">
+            <label class="item item-input odd">
+                <i class="ion-android-create"></i>
+                <input type="text" placeholder="Name of the Event" tabindex="1" ng-model="model.eventname">
             </label>
-            <label class="item item-input">
+            <label class="item item-input odd">
                 <i class="ion-ios-calendar-outline"></i>
-                <input type="date" placeholder="Date (yyyy-MM-dd)" id="eventdate" ng-model="model.eventdate">
+                <input type="date" placeholder="Date (yyyy-MM-dd)" id="eventdate" tabindex="2" ng-model="model.eventdate">
             </label>
-            <label class="item item-input">
+            <label class="item item-input odd">
                 <i class="ion-clock"></i>
-                <input type="time" placeholder="Time (HH:mm:ss)" id="eventtime" ng-model="model.time2">
+                <input type="time" placeholder="Time (HH:mm:ss)" id="eventtime" tabindex="3" ng-model="model.time2">
             </label>
-            <label class="item item-input">
-                <i class="ion-ios-location-outline"></i>
-                <input type="text" placeholder="Location" ng-model="model.location">
+            <label class="item item-input odd">
+                <i class="ion-ios-location"></i>
+                <input type="text" id="eventlocation" placeholder="Location" tabindex="5" g-places-autocomplete ng-model="model.location">
             </label>
-
-
-
-
-            <label class="item item-input">
-                <i class="ion-document-text"></i>
-                <input type="text" placeholder="Keywords" ng-model="model.keywords">
-            </label>
-
-
-
             <div class="col marginbottom">
-                <input type="submit" class="button button-block button-positive blue right-icon margin-top" value="Create Event" />
+                <input type="submit" class="button button-block button-cyan" tabindex="6" value="Create Event" />
             </div>
         </form>           
               </div><!-- List -->

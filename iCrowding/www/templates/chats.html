@@ -1,0 +1,40 @@
+﻿<ion-view view-title="iCrowding" style="bottom: 50px !important;">
+    <ion-content class="event-info"  style="overflow:scroll; bottom: 100px;">
+        <div class="scroll" id="chatdiv" delegate-handle="mainScroll">
+            <div class="message-wrapper cf" ng-repeat="chat in chats" style="height: 60px;">
+                <div class="" ng-if="chat.idsender == curruser">
+                    <img src="http://www.icreax.in/icrowding_server/images/users/{{chat.senderemail}}.jpg" class="profile-pic right" onerror="this.src = 'img/profile.jpg';" ng-src="http://www.icreax.in/icrowding_server/images/users/{{chat.senderemail}}.jpg">
+                    <div class="chat-bubble right">
+                        <div class="message" ng-bind="chat.content">
+                        </div>
+                        <div class="message-detail">
+                            <span class="bold" ng-bind="chat.sendername"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="" ng-if="chat.idsender != curruser">
+                    <img src="http://www.icreax.in/icrowding_server/images/users/{{chat.senderemail}}.jpg" class="profile-pic left" onerror="this.src = 'img/profile.jpg';" ng-src="http://www.icreax.in/icrowding_server/images/users/{{chat.senderemail}}.jpg">
+                    <div class="chat-bubble left">
+                        <div class="message" ng-bind="chat.content">
+                        </div>
+                        <div class="message-detail">
+                            <span class="bold" ng-bind="chat.sendername"></span>
+                        </div>
+                    </div>
+                </div>
+            <br />
+            </div>
+            
+        </div>
+            
+    </ion-content>
+    <ion-footer-bar class="item-input-inset sub-footer" style="bottom: 50px;" keyboard-attach>
+        
+                  <label class="item-input-wrapper item-stacked-label">
+                      <textarea style="width: 100%;" ng-model="data.comment" value="" placeholder="Send a message..."></textarea>
+                  </label>
+                        <button ng-click="submitComment()" class="button button-clear" ng-disabled="!data.comment || data.comment === ''" style="color: rgb(68, 68, 68);" ng-click="takePicture()">
+                        <i class="icon ion-android-send"></i>
+                        </button>
+    </ion-footer-bar>
+</ion-view>

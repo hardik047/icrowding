@@ -1,8 +1,7 @@
-      <ion-modal-view class="search" title="search">
-        
-        <ion-content class="padding">
+      <ion-view view-title="iCrowding">
+        <ion-content>
             <form ng-submit="searchnow();">
-                <div class="list list-inset">
+                <div class="list list-inset" style="text-align: center; border-radius: 5%;">
                     <label class="item item-input">
                         <i class="icon ion-search"></i>
                         <input type="text" ng-model="data.keyword" placeholder="Search">
@@ -10,26 +9,25 @@
                     <label class="item item-input item-select">
                         <i class="icon ion-alert"></i>
                         <select ng-model="data.targettype" id="targettype">
+                            <option value="" disabled selected>Select preference</option>
                             <option value="E" selected>Events</option>
                             <option value="P">People</option>
                         </select>
                     </label>
-                    <button class="button button-full blue" onclick="">Search</button>
+                    <button class="button button-block button-cyan" style="margin-bottom: 10px; width: 80%;">Search</button>
                 </div>
             </form>
             <br /><br />
 
         <ion-list class="list">
-            <ion-item class="item item-avatar" ng-repeat="result in results">
-                <img src="../img/profile.jpg" />
-                <div class="half">
+            <ion-item class="item item-avatar" ng-repeat="result in results" style="background-color: rgba(255,255,255,0.6); border-bottom: 0.5px solid rgb(197, 187, 187);">
+                    <img onerror="this.src='img/event.png';" src="http://www.icreax.in/icrowding_server/images/events/{{result.fname}}_{{result.host}}.jpg" />
                     <div ng-if="result.type == 'event'">
-                        <h2 ng-click="gotoEvent({{result.id}});"><strong>{{result.fname}}</strong></h2>
+                        <h2 ng-click="gotoEvent({{result.id}})" style="font-size: medium;"><strong>{{result.fname}}</strong></h2>
                     </div>
                     <div ng-if="result.type == 'user'">
-                        <h2 ng-click="viewProfile({{result.id}});"><strong>{{result.fname}}</strong></h2>
+                        <h2 ng-click="viewProfile('{{result.email}}')" style="font-size: medium;"><strong>{{result.fname}}</strong></h2>
                     </div>
-                </div>
                 <div class="half">
                     <div ng-if="result.type == 'user'">
                         <i class="ion-person-add" ng-click="addfriend({{result.id}});"></i>
@@ -42,5 +40,5 @@
         </ion-list>
 
         </ion-content>
-      </ion-modal-view>
+      </ion-view>
   

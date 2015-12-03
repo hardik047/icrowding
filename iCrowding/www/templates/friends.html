@@ -1,17 +1,26 @@
 <ion-view view-title="iCrowding">
   <ion-content>
-    <h3>Friends</h3>
+    <div class="button-bar" style="margin-top: 5%;">
+        <button class="button button-cyan" ng-click="invitepeople()">Invite</button>
+        <a href="#/app/friendrequests" class="button button-cyan" style="padding: 0px 5px;">Requests<span style="margin-left: 5px;" ng-bind="reqtotal" class="badge badge-assertive"></span></a>
+    </div>
     
-    <ion-list class="list">
+    <div class="row" style="margin-top: 15px;">
+      <a class="button button-small button-clear button-cyan" style="line-height: 3; font-size: small; margin: -2% auto auto auto; background: rgba(0,0,0,0.5); font-weight: bold !important;" href="#/app/search"><strong>Search friends</strong></a>
+    </div>
+    
+    <div class="row" style="flex-wrap: wrap;">
 
-        <li class="item item-avatar" ng-repeat="friend in friends" >
-          <img src="img/venkman.jpg">
-          <div class="half">
-          <h2>{{friend.fname}} {{friend.lname}}</h2>
+        <div class="col col-50 card" ng-repeat="friend in friends" style="height: auto;" ng-click="gotoprofile('{{friend.email}}')">
+          <div class="item item-image">
+            <img src="http://www.icreax.in/icrowding_server/images/users/{{friend.email}}.jpg" onerror="this.src = 'img/profile.jpg';">
           </div>
-        </li>
+          <div class="item item-text-wrap">
+            <h4 class="event-detail"><i class="ion-ios-person" style="border-right: 1px solid #000; margin-right: 5px; padding-right: 5px;"></i>{{friend.fname}}</h4>
+          </div>
+        </div>
     
-    </ion-list>
+    </div>
 
   </ion-content>
 </ion-view>

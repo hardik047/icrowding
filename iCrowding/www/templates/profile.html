@@ -1,60 +1,47 @@
 <ion-view view-title="iCrowding">
-  <ion-content>
-          <h3>Profile</h3>
-    
-    
-                  <div class="list">
-                 
-                   
-                          <label class="item item-input">
-                        <i class="ion-ios-person-outline"></i>
-                          <input type="text" placeholder="First Name" >
+  <ion-content overflow-scroll="true">
+                  <div class="list scroll">
+                      <div class="upload-image" style="content-align: center; padding: 15% 5%; background-image: url('img/covers/{{data.cover}}.jpg'); background-size: 100%;">
+                        <div class="col-33" style="float: left;">
+                          <img src="img/profile.jpg" onerror="this.src = 'img/profile.jpg';" id="mypic"/>
+                        </div>
+                        <div class="col-66" style="float: left;">
+                          <label style="padding-right: 0px;">
+                          <span ng-bind="data.fname" style="-webkit-text-fill-color: #000000; color: #fff !important; font-weight: bold !important;"></span>
                         </label>
-                        <label class="item item-input">
-                          <i class="ion-ios-person-outline"></i>
-                          <input type="text" placeholder="Last Name" required>
-                          </label>
-                        <label class="item item-input">
-                        <i class="ion-ios-email-outline"></i>
-                          <input type="email" placeholder="Email" >
-                        </label>
-                       
-                        
-                         <label class="item item-input">
+                        </div>
+                      </div>
+                      <div>
+                      <a ng-click="addfriend({{data.id}})" class="button button-small button-clear button-cyan col-20" style="line-height: 1.9; font-size: small; float: right; margin: 2% 5%; background: rgba(0,0,0,0.7); font-weight: bold !important; padding-left: 15px !important; padding-right: 15px !important; {{visitorbuttondisplaystatus}}"><i class="ion-person-add"></i></a>
+                      <a ng-click="gotochats({{data.id}})" class="button button-small button-clear button-cyan col-20" style="line-height: 1.9; font-size: small; float: right; background: rgba(0,0,0,0.7); font-weight: bold !important; padding-left: 15px !important; padding-right: 15px !important; {{friendbuttondisplaystatus}}"><i class="ion-ios-chatboxes"></i></a>
+                      </div>
+                          <br>
+                         <label class="item item-input odd"><div class="col">Gender: &nbsp;&nbsp;</div>
                           <i class="ion-transgender"></i>
-                            <input type="text" placeholder="Gender" >
+                            <span ng-bind="data.gender" class="profileinfo" style="-webkit-text-fill-color: #000000" ></span>
                           </label>
-                        
-                        
-                        <label class="item item-input">
-                        <i class="ion-man"></i>
-                          <input type="number" placeholder="Height" >
+                        <label class="item item-input even"><div class="col">Height: &nbsp;&nbsp;</div>
+                        <i class="ion-ios-body"></i>
+                          <span ng-bind="data.height" class="profileinfo" style="-webkit-text-fill-color: #000000" ></span><span style="margin-left:3%;">Inches</span>
                         </label>
-                         <label class="item item-input">
-                        <i class="ion-bag"></i>
-                          <input type="number" placeholder="Weight" >
+                         <label class="item item-input odd"><div class="col">Weight: &nbsp;&nbsp;</div>
+                        <i class="ion-ios-body-outline"></i>
+                          <span ng-bind="data.weight" class="profileinfo" style="-webkit-text-fill-color: #000000" ></span><span style="margin-left:3%;">Lbs</span>
                         </label>
-                         <label class="item item-input">
+                         <label class="item item-input even"><div class="col">Age: &nbsp;&nbsp;</div>
                         <i class="ion-ios-calendar-outline"></i>
-                          <input type="number" placeholder="Age" >
+                          <span ng-bind="data.age" class="profileinfo" style="-webkit-text-fill-color: #000000" ></span><span style="margin-left:3%;">Years</span>
                         </label>
-                         <label class="item item-input">
+                         <label class="item item-input odd"><div class="col">Sexual orientation: &nbsp;&nbsp;</div>
                           <i class="ion-ios-body-outline"></i>
-                          <input type="text" placeholder="Sexual Orientation" >
+                          <span ng-bind="data.sexuality" class="profileinfo" style="-webkit-text-fill-color: #000000" ></span>
                         </label>
-                         <label class="item item-input">
-                        <i class="ion-chatbubble"></i>
-                          <input type="text" placeholder="Occupation" >
+                         <label class="item item-input even"><div class="col">Occupation: &nbsp;&nbsp;</div>
+                        <i class="ion-ios-briefcase"></i>
+                          <span ng-bind="data.occupation" class="profileinfo" style="-webkit-text-fill-color: #000000" ></span>
                         </label>
-                         <label class="item item-input">
-                        <i class="ion-search"></i>
-                          <input type="text" placeholder="What are you seeking" >
-                        </label>
-                       
                         
-                          <div class="col marginbottom">
-                          <a href="#/app/edit-profile" class="button-a right-icon margin-top">Edit Profile<i class="ion-android-add"></i></a>
-                          </div>   
+                           
                        
               </div><!-- list -->
   </ion-content>

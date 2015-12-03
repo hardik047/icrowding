@@ -7,62 +7,73 @@
                  
                    <div class="upload-image">
                   
-                     <button ng-click="takePicture()"> <img src="img/profile.jpg" /></button>
+                     <button ng-click="changepic()"> <img src="img/profile.jpg" onerror="this.src = 'img/profile.jpg';" id="mypic" /></button>
                       </div>
                           <label class="item item-input">
-                        <i class="ion-ios-person-outline"></i>
-                          <input type="text" placeholder="First Name" >
+                        <i class="ion-ios-person"></i>
+                          <input type="text" placeholder="username" ng-model="data.fname" readonly="readonly"/>
                         </label>
-                        <label class="item item-input">
-                         <i class="ion-ios-person-outline"></i>
-                         <input type="text" placeholder="Last Name" required>
-                         </label>
+
                         <label class="item item-input">
                         <i class="ion-ios-email-outline"></i>
-                          <input type="email" placeholder="Email" >
+                          <input type="email" placeholder="Email" ng-model="data.email" readonly="readonly"/>
                         </label>
                        
-                        
                          <label class="item item-input item-select">
                           <i class="ion-transgender"></i>
                         
-                            <select>
-                              <option value="" class="grey">Gender</option>
-                              <option value="0">Male</option>
-                              <option value="1">Female</option>
+                            <select ng-model="data.gender" id="gendermenu">
+                                <option value="" disabled selected>Select Gender</option>
+                                <option value="Male" selected>Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Transsexual">Transsexual</option>
                             </select>
                           </label>
-                        
-                        
-                        <label class="item item-input">
-                        <i class="ion-man"></i>
-                          <input type="number" placeholder="Height" >
-                        </label>
-                         <label class="item item-input">
-                        <i class="ion-bag"></i>
-                          <input type="number" placeholder="Weight" >
-                        </label>
-                         <label class="item item-input">
-                        <i class="ion-ios-calendar-outline"></i>
-                          <input type="number" placeholder="Age" >
-                        </label>
-                         <label class="item item-input">
+
+                      <label class="item item-input">
+                          <i class="ion-ios-body"></i>
+                          <input type="number" placeholder="Height" max="300" min="50" pattern="[0-9]*" ng-model="data.height"><span style="margin-right:40%;">Inches</span>
+                      </label>
+                      <label class="item item-input">
                           <i class="ion-ios-body-outline"></i>
-                          <input type="text" placeholder="Sexual Orientation" >
-                        </label>
+                          <input type="number" placeholder="Weight" max="200" min="10" pattern="[0-9]*" ng-model="data.weight"><span style="margin-right:40%;">Lbs</span>
+                      </label>
+                      <label class="item item-input">
+                          <i class="ion-ios-calendar-outline"></i>
+                          <input type="number" placeholder="Age" max="100" min="6" pattern="[0-9]*" ng-model="data.age"><span style="margin-right:40%;">Years</span>
+                      </label>
+                      <label class="item item-input item-select">
+                          <i class="ion-transgender"></i>
+
+                          <select ng-model="data.sexuality" placeholder="Sexual Orientation">
+                              <option value="" disabled selected>Sexual preference</option>
+                              <option value="Straight" selected>Straight</option>
+                              <option value="Gay">Gay</option>
+                              <option value="Bisexual">Bisexual</option>
+                              <option value="Lesbian">Lesbian</option>
+                          </select>
+                      </label>
                          <label class="item item-input">
-                        <i class="ion-chatbubble"></i>
-                          <input type="text" placeholder="Occupation" >
+                        <i class="ion-ios-briefcase"></i>
+                          <input type="text" placeholder="Occupation" ng-model="data.occupation">
                         </label>
-                         <label class="item item-input">
-                        <i class="ion-search"></i>
-                          <input type="text" placeholder="What are you seeking" >
+                        <div id="list tagsList">
+                        <div ng-repeat="selectedTag in selectedTags" class="tag" style="display: inline; margin-left: 10px;">
+                            <span class="tagName">{{selectedTag}}</span>
+                            <span>&nbsp;<b ng-click="removeTag($index)" class="fa fa-times cross"></b></span>
+                        </div>
+                        <label class="item item-input">
+                            <i class="ion-android-list"></i>
+                            <input type="text" placeholder="Seeking.." id="searchInput" ng-keydown="checkKeyDown($event)" class="form-control" ng-model="data.searchText" ng-change="search()" />
                         </label>
-                       
-                        
+                        </div>
+                        <ion-list id="suggestions" class="list suggestions-list">
+                            <li class="item" ng-click="addToSelectedTags(-2)" ng-class="{active : selectedIndex===$index}">{{data.searchText}}</li>
+                            <li ng-repeat="suggestion in suggestions" class="item" ng-click="addToSelectedTags($index)" ng-class="{active : selectedIndex===$index}">{{suggestion}}</li>
+                        </ion-list>
                           <div class="col marginbottom">
-                          <button class="button button-block button-positive blue right-icon margin-top">Save <i class="ion-android-add"></i></button>
-                          <button class="button button-block button-positive blue right-icon margin-top"  ng-click="change.show()">Change-Password <i class="ion-android-add"></i></button>
+                          <button class="button button-block button-positive" ng-click="save()">Save <i class="ion-android-add"></i></button>
+                          <button class="button button-block button-positive"  ng-click="change.show()">Change password <i class="ion-android-add"></i></button>
                           </div> 
                           
                            

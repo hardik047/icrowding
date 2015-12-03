@@ -1,7 +1,5 @@
 <ion-view view-title="iCrowding" class="main-login">
- 
-   
- <ion-content hide-nav-bar="true" ng-controller="loginCtrl">
+ <ion-content ng-controller="loginCtrl">
      <form id="loginform" ng-submit="login();">
          <div class="content">
              <h3>Login</h3>
@@ -10,7 +8,7 @@
 
                  <label class="item item-input">
                      <i class="ion-android-person"></i>
-                     <input type="text" ng-model="data.username" name="username" placeholder="Username" required>
+                     <input type="email" ng-model="data.username" name="username" placeholder="Email" required>
                  </label>
                  <label class="item item-input">
                      <i class="ion-ios-locked"></i>
@@ -29,18 +27,17 @@
 
          <div class="row">
              <div class="col">
-                 <input type="submit" class="button button-block button-positive blue right-icon" value="Login" />
+                 <input type="submit" class="button button-block button-positive" value="Login" />
              </div>
      </form>
       </div>
       <div class="row">
-       <div class="col"> <a href="#/app/forgot" class="button-a right-icon">Forgot Password <i class="ion-ios-help-outline"></i></a></div>
+       <div class="col"> <a class="button icon-right ion-ios-help-outline button-block button-positive right-icon" href="#/notloggedin/forgot">Forgot Password </a></div>
        </div>
         <div class="row">
-       <div class="col"> <a href="#/app/create" class="button-a right-icon">Create Account<i class="ion-android-add"></i></a></div>
+       <div class="col"> <a href="#/notloggedin/create" class="button icon-right ion-android-add button-block button-positive right-icon">Create Account </a></div>
        </div>
       
      </ion-content>
    
 </ion-view>
- <ion-item menu-close href="#/app/home">

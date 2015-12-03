@@ -5,7 +5,7 @@
     <div class="list">
         <form id="eventform" ng-submit="createEvent();">
             <label class="item item-input">
-                <i class="ion-android-calendar"></i>
+                <i class="ion-android-create"></i>
                 <input type="text" placeholder="Name of the Event" ng-model="model.eventname">
             </label>
             <label class="item item-input">
@@ -17,22 +17,25 @@
                 <input type="time" placeholder="Time (HH:mm:ss)" id="eventtime" ng-model="model.time2">
             </label>
             <label class="item item-input">
-                <i class="ion-ios-location-outline"></i>
-                <input type="text" placeholder="Location" ng-model="model.location">
+                <i class="ion-ios-location"></i>
+                <input type="text" id="eventlocation" placeholder="Location" g-places-autocomplete ng-model="model.location">
             </label>
-
-
-
-
-            <label class="item item-input">
-                <i class="ion-document-text"></i>
-                <input type="text" placeholder="Keywords" ng-model="model.keywords">
-            </label>
-
-
-
+            <div id="list tagsList">
+                <div ng-repeat="selectedTag in selectedTags" class="tag" style="display: inline; margin-left: 10px;">
+                    <span class="tagName">{{selectedTag}}</span>
+                    <span>&nbsp;<b ng-click="removeTag($index)" class="fa fa-times cross"></b></span>
+                </div>
+                <label class="item item-input">
+                    <i class="ion-android-list"></i>
+                    <input type="text" placeholder="Keywords" id="searchInput2" ng-keydown="checkKeyDown($event)" class="form-control" ng-model="model.searchText" ng-change="search()" />
+                </label>
+            </div>
+            <ion-list id="suggestions" class="list suggestions-list">
+                <li class="item" ng-click="addToSelectedTags(-2)" ng-class="{active : selectedIndex===$index}">{{model.searchText}}</li>
+                <li ng-repeat="suggestion in suggestions" class="item" ng-click="addToSelectedTags($index)" ng-class="{active : selectedIndex===$index}">{{suggestion}}</li>
+            </ion-list>
             <div class="col marginbottom">
-                <input type="submit" class="button button-block button-positive blue right-icon margin-top" value="Create Event" />
+                <input type="submit" class="button button-block button-positive" value="Create Event" />
             </div>
         </form>           
               </div><!-- List -->

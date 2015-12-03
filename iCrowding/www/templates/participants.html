@@ -1,0 +1,16 @@
+﻿<ion-view view-title="iCrowding">
+    <ion-content>
+        <p style="margin: 15px; padding: 5px; border-radius: 1%; font-weight: 600;" ng-bind="noparticipantsMessage"></p>
+        <ion-list class="list">
+
+            <li class="item item-avatar" ng-repeat="friend in friends" ng-click="gotoProfile('{{friend.email}}')" style="background-color: rgba(255,255,255,0.6); border-bottom: 0.5px solid rgb(197, 187, 187);">
+                <img src="http://www.icreax.in/icrowding_server/images/users/{{friend.email}}.jpg" onerror="this.src = 'img/profile.jpg';">
+                <div class="half">
+                    <h2 style="font-size: medium;">{{friend.fname}}</h2>
+                </div>
+            </li>
+
+        </ion-list>
+
+    </ion-content>
+</ion-view>
